@@ -1,0 +1,1 @@
+"""Model for Putaway Rule."""

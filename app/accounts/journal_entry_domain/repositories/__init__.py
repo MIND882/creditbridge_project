@@ -1,0 +1,1 @@
+"""Repository for Journal Entry."""

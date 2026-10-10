@@ -1,0 +1,1 @@
+"""Schema for Packing Slip."""

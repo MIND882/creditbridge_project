@@ -1,0 +1,3 @@
+"""Schema for Overdue Payment.
+
+"""

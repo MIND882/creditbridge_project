@@ -1,0 +1,1 @@
+"""Service for Accounting Dimension."""

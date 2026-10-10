@@ -1,0 +1,3 @@
+"""Model for Overdue Payment.
+
+"""

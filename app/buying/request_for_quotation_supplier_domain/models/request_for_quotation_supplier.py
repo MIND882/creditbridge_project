@@ -1,0 +1,139 @@
+"""
+
+Request for Quotation Supplier -- converted from ``erpnext/buying/doctype/request_for_quotation_supplier``.
+
+
+
+A Frappe child table (``istable: 1``): no independent identity, owned by its parent (Request For Quotation).
+
+"""
+
+
+
+from __future__ import annotations
+
+
+
+import enum
+
+from typing import Optional
+
+import uuid
+
+
+
+from sqlalchemy import Boolean, Enum as SAEnum, ForeignKey, String, UniqueConstraint
+
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+
+
+from app.core.base_model import TenantModel
+
+from app.core.docstatus import ChildTableModel
+
+
+
+__all__ = ["RequestForQuotationSupplier", "RequestForQuotationSupplierQuoteStatus"]
+
+
+
+
+
+class RequestForQuotationSupplierQuoteStatus(str, enum.Enum):
+
+    PENDING = "Pending"
+
+    RECEIVED = "Received"
+
+
+
+
+
+class RequestForQuotationSupplier(ChildTableModel, TenantModel):
+
+    __tablename__ = "request_for_quotation_suppliers"
+
+    __table_args__ = (
+
+        UniqueConstraint("business_id", "name", name="uq_request_for_quotation_suppliers_business_name"),
+
+    )
+
+
+
+    parent_id: Mapped[Optional[uuid.UUID]] = mapped_column(
+
+        ForeignKey("request_for_quotations.id", ondelete="CASCADE"),
+
+        nullable=True, index=True,
+
+    )
+
+    parent = relationship(  # noqa: F821 - resolved by the parent module
+
+        "RequestForQuotation",
+
+        back_populates="suppliers",
+
+        # explicit: a child can carry a second FK to its own parent
+
+        # (item_variant_attribute.variant_of -> items), which would
+
+        # otherwise make the join ambiguous
+
+        foreign_keys=[parent_id],
+
+    )
+
+    parenttype: Mapped[Optional[str]] = mapped_column(String(140), nullable=True)
+
+    parentfield: Mapped[Optional[str]] = mapped_column(String(140), nullable=True)
+
+
+
+    #: ``autoname`` = 'hash'.
+
+    #: Upstream ``autoname = 'hash'``: Frappe assigns an opaque random hash.
+
+    #: There is no content to hash here, so a UUID4 is the faithful
+
+    #: equivalent -- unique, opaque, and not user-visible. Without a
+
+    #: default the column is NOT NULL and every insert fails.
+
+    name: Mapped[str] = mapped_column(
+
+        String(140), nullable=False, default=lambda: uuid.uuid4().hex
+
+    )
+
+
+
+    send_email: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
+
+    email_sent: Mapped[bool] = mapped_column(Boolean, nullable=False, default=False)
+
+    supplier_id: Mapped[Optional[uuid.UUID]] = mapped_column(
+
+        ForeignKey("suppliers.id", ondelete="RESTRICT"),
+
+        nullable=False, index=True,
+
+    )
+
+    supplier = relationship("app.buying.supplier_domain.models.supplier.Supplier", foreign_keys=[supplier_id])
+
+    contact: Mapped[Optional[str]] = mapped_column(String(140), nullable=True)
+
+    quote_status: Mapped[Optional[str]] = mapped_column(SAEnum(RequestForQuotationSupplierQuoteStatus, native_enum=False, length=12, validate_strings=True), nullable=True)
+
+    supplier_name: Mapped[Optional[str]] = mapped_column(String(140), nullable=True)
+
+    email_id: Mapped[Optional[str]] = mapped_column(String(140), nullable=True)
+
+
+
+    def __repr__(self) -> str:  # pragma: no cover - debugging aid
+
+        return f"<RequestForQuotationSupplier id={self.id}>"
