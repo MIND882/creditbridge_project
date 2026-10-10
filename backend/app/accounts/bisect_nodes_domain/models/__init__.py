@@ -1,0 +1,3 @@
+"""Model for Bisect Nodes.
+
+"""

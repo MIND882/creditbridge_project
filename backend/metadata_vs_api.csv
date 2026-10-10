@@ -1,0 +1,379 @@
+domain,field,issue,detail
+account,company,NOT_IN_API,link
+account,report_type,NOT_IN_API,select
+account,parent_account,NOT_IN_API,link
+account,account_type,ENUM_MISSING_IN_META,"['Current Liability', 'Depreciation', 'Direct Expense', 'Direct Income', 'Equity', 'Expense Account', 'Expenses Included In Asset Valuation', 'Expenses Included In Valuation', 'Fixed Asset', 'Income Account', 'Indirect Expense', 'Indirect Income', 'Liability', 'Payable', 'Receivable', 'Round Off', 'Round Off for Opening', 'Service Received But Not Billed', 'Stock', 'Stock Adjustment', 'Stock Delivered But Not Billed', 'Stock Received But Not Billed', 'Tax', 'Temporary']"
+account,status,NOT_IN_API,select
+account,balance_must_be,TYPE,meta=date api=enum
+account_category,status,NOT_IN_API,select
+account_closing_balance,account,NOT_IN_API,link
+account_closing_balance,cost_center,NOT_IN_API,link
+account_closing_balance,company,NOT_IN_API,link
+account_closing_balance,finance_book,NOT_IN_API,link
+account_closing_balance,status,NOT_IN_API,select
+accounting_dimension,label,API_REQUIRED_META_OPTIONAL,
+accounting_dimension,status,NOT_IN_API,select
+accounting_dimension_filter,accounting_dimension,TYPE,meta=select api=str
+accounting_dimension_filter,company,NOT_IN_API,link
+accounting_dimension_filter,status,NOT_IN_API,select
+accounting_dimension_filter,accounts,API_REQUIRED_NOT_IN_META,
+accounting_period,company,NOT_IN_API,link
+accounting_period,status,NOT_IN_API,select
+accounting_period,parent_id,NOT_IN_API,link
+accounting_period,idx,NOT_IN_API,number
+accounting_period,document_type,NOT_IN_API,text
+accounting_period,closed,NOT_IN_API,check
+advance_payment_ledger_entry,company,NOT_IN_API,link
+advance_payment_ledger_entry,status,NOT_IN_API,select
+bank,status,NOT_IN_API,select
+bank_account,account,NOT_IN_API,link
+bank_account,bank,NOT_IN_API,link
+bank_account,company,NOT_IN_API,link
+bank_account,status,NOT_IN_API,select
+bank_account,integration_id,NOT_IN_API,link
+bank_account,last_integration_date,NOT_IN_API,date
+bank_account_subtype,account_subtype,API_REQUIRED_META_OPTIONAL,
+bank_account_subtype,status,NOT_IN_API,select
+bank_account_type,account_type,API_REQUIRED_META_OPTIONAL,
+bank_account_type,status,NOT_IN_API,select
+bank_clearance,account,NOT_IN_API,link
+bank_clearance,bank_account,NOT_IN_API,link
+bank_clearance,status,NOT_IN_API,select
+bank_guarantee,bank,NOT_IN_API,link
+bank_guarantee,status,NOT_IN_API,select
+bank_guarantee,amended_from_id,NOT_IN_API,link
+bank_reconciliation_tool,company,NOT_IN_API,link
+bank_reconciliation_tool,bank_account,NOT_IN_API,link
+bank_reconciliation_tool,status,NOT_IN_API,select
+bank_statement_import,company,NOT_IN_API,link
+bank_statement_import,bank_account,NOT_IN_API,link
+bank_statement_import,bank,NOT_IN_API,link
+bank_statement_import,download_template,NOT_IN_API,text
+bank_statement_import,refresh_google_sheet,NOT_IN_API,text
+bank_statement_import_log,bank_account,NOT_IN_API,link
+bank_statement_import_log,file,META_REQUIRED_API_OPTIONAL,
+bank_statement_import_log,status,ENUM_MISSING_IN_META,"['Completed', 'Not Started']"
+bank_statement_import_log,status,ENUM_NOT_IN_API,"['Active', 'Disabled']"
+bank_statement_import_log,status,META_REQUIRED_API_OPTIONAL,
+bank_transaction,status,NOT_IN_API,select
+bank_transaction,bank_account,NOT_IN_API,link
+bank_transaction,company,NOT_IN_API,link
+bank_transaction,allocated_amount,NOT_IN_API,currency
+bank_transaction,unallocated_amount,NOT_IN_API,currency
+bank_transaction,is_rule_evaluated,NOT_IN_API,check
+bank_transaction,matched_transaction_rule_id,NOT_IN_API,link
+bank_transaction,amended_from_id,NOT_IN_API,link
+bank_transaction_rule,transaction_type,META_REQUIRED_API_OPTIONAL,
+bank_transaction_rule,account,NOT_IN_API,link
+bank_transaction_rule,priority,META_REQUIRED_API_OPTIONAL,
+bank_transaction_rule,company,NOT_IN_API,link
+bank_transaction_rule,status,NOT_IN_API,select
+bisect_accounting_statements,company,NOT_IN_API,link
+bisect_accounting_statements,heading_cppb,NOT_IN_API,text
+bisect_accounting_statements,status,NOT_IN_API,select
+bisect_nodes,status,NOT_IN_API,select
+budget,budget_against,META_REQUIRED_API_OPTIONAL,
+budget,company,NOT_IN_API,link
+budget,cost_center,NOT_IN_API,link
+budget,status,NOT_IN_API,select
+budget,naming_series,ENUM_MISSING_IN_META,['BUDGET-.########']
+budget,naming_series,ENUM_NOT_IN_API,['Budget']
+budget,naming_series,META_REQUIRED_API_OPTIONAL,
+budget,distribution_frequency,ENUM_MISSING_IN_META,['Half-Yearly']
+budget,distribution_frequency,ENUM_NOT_IN_API,['Half Yearly']
+budget,distribution_frequency,META_REQUIRED_API_OPTIONAL,
+cashier_closing,from_time,TYPE,meta=text api=date
+cashier_closing,from_time,META_REQUIRED_API_OPTIONAL,
+cashier_closing,time,TYPE,meta=text api=date
+cashier_closing,time,META_REQUIRED_API_OPTIONAL,
+cashier_closing,status,NOT_IN_API,select
+cashier_closing,naming_series,ENUM_MISSING_IN_META,['POS-CLO-']
+cashier_closing,naming_series,ENUM_NOT_IN_API,['Pos Clo']
+chart_of_accounts_importer,company,NOT_IN_API,link
+chart_of_accounts_importer,download_template,NOT_IN_API,text
+chart_of_accounts_importer,status,NOT_IN_API,select
+cheque_print_template,status,NOT_IN_API,select
+cost_center,parent_cost_center,NOT_IN_API,link
+cost_center,company,NOT_IN_API,link
+cost_center,lft,NOT_IN_API,number
+cost_center,rgt,NOT_IN_API,number
+cost_center,old_parent,NOT_IN_API,link
+cost_center,status,NOT_IN_API,select
+cost_center_allocation,main_cost_center,NOT_IN_API,link
+cost_center_allocation,company,NOT_IN_API,link
+cost_center_allocation,status,NOT_IN_API,select
+cost_center_allocation,allocation_percentages,API_REQUIRED_NOT_IN_META,
+coupon_code,status,NOT_IN_API,select
+currency_exchange_settings,status,NOT_IN_API,select
+dunning,company,NOT_IN_API,link
+dunning,dunning_type,NOT_IN_API,link
+dunning,posting_time,TYPE,meta=text api=date
+dunning,status,ENUM_MISSING_IN_META,"['Resolved', 'Unresolved']"
+dunning,status,ENUM_NOT_IN_API,"['Paid', 'Submitted']"
+dunning,status,META_REQUIRED_API_OPTIONAL,
+dunning,naming_series,ENUM_MISSING_IN_META,['DUNN-.MM.-.YY.-']
+dunning,naming_series,ENUM_NOT_IN_API,['Dunn Mm Yy']
+dunning_type,income_account,NOT_IN_API,link
+dunning_type,cost_center,NOT_IN_API,link
+dunning_type,company,NOT_IN_API,link
+dunning_type,status,NOT_IN_API,select
+exchange_rate_revaluation,company,NOT_IN_API,link
+exchange_rate_revaluation,get_entries,NOT_IN_API,text
+exchange_rate_revaluation,status,NOT_IN_API,select
+finance_book,finance_book_name,API_REQUIRED_META_OPTIONAL,
+finance_book,status,NOT_IN_API,select
+financial_report_template,status,NOT_IN_API,select
+fiscal_year,auto_created,NOT_IN_API,check
+fiscal_year,status,NOT_IN_API,select
+gl_entry,posting_date,API_REQUIRED_META_OPTIONAL,
+gl_entry,account,NOT_IN_API,link
+gl_entry,cost_center,NOT_IN_API,link
+gl_entry,status,NOT_IN_API,select
+gl_entry,debit_in_reporting_currency,NOT_IN_API,currency
+gl_entry,credit_in_reporting_currency,NOT_IN_API,currency
+gl_entry,reporting_currency_exchange_rate,NOT_IN_API,currency
+gl_entry,to_rename,NOT_IN_API,check
+gl_entry,is_cancelled,NOT_IN_API,check
+invoice_discounting,company,NOT_IN_API,link
+invoice_discounting,short_term_loan,NOT_IN_API,link
+invoice_discounting,bank_account,NOT_IN_API,link
+invoice_discounting,bank_charges_account,NOT_IN_API,link
+invoice_discounting,bank_charges_account_id,TYPE,meta=currency api=uuid
+invoice_discounting,accounts_receivable_credit_id,TYPE,meta=currency api=uuid
+invoice_discounting,accounts_receivable_discounted_id,TYPE,meta=currency api=uuid
+item_tax_template,company,NOT_IN_API,link
+item_tax_template,status,NOT_IN_API,select
+item_tax_template,taxes,API_REQUIRED_NOT_IN_META,
+journal_entry,voucher_type,ENUM_MISSING_IN_META,"['Depreciation Entry', 'Exchange Gain Or Loss', 'Opening Entry']"
+journal_entry,voucher_type,ENUM_NOT_IN_API,"['Contra Entry', 'Credit Card Entry', 'Inter Company Journal Entry']"
+journal_entry,voucher_type,META_REQUIRED_API_OPTIONAL,
+journal_entry,company,NOT_IN_API,link
+journal_entry,finance_book,NOT_IN_API,link
+journal_entry,total_debit,NOT_IN_API,currency
+journal_entry,total_credit,NOT_IN_API,currency
+journal_entry,difference,NOT_IN_API,currency
+journal_entry,status,NOT_IN_API,select
+journal_entry,remark,NOT_IN_API,textarea
+journal_entry,amended_from_id,NOT_IN_API,link
+journal_entry,accounts,API_REQUIRED_NOT_IN_META,
+journal_entry_template,voucher_type,ENUM_MISSING_IN_META,"['Depreciation Entry', 'Exchange Gain Or Loss', 'Opening Entry']"
+journal_entry_template,voucher_type,ENUM_NOT_IN_API,"['Contra Entry', 'Credit Card Entry', 'Inter Company Journal Entry']"
+journal_entry_template,company,NOT_IN_API,link
+journal_entry_template,status,NOT_IN_API,select
+ledger_health,status,NOT_IN_API,select
+ledger_health_monitor,monitor_for_last_x_days,META_REQUIRED_API_OPTIONAL,
+ledger_health_monitor,status,NOT_IN_API,select
+ledger_merge,account,NOT_IN_API,link
+ledger_merge,company,NOT_IN_API,link
+loyalty_point_entry,loyalty_points,META_REQUIRED_API_OPTIONAL,
+loyalty_point_entry,company,NOT_IN_API,link
+loyalty_point_entry,status,NOT_IN_API,select
+loyalty_program,expense_account,NOT_IN_API,link
+loyalty_program,cost_center,NOT_IN_API,link
+loyalty_program,status,NOT_IN_API,select
+mode_of_payment,status,NOT_IN_API,select
+monthly_distribution,distribution_id,NOT_IN_API,text
+monthly_distribution,fiscal_year,NOT_IN_API,link
+monthly_distribution,status,NOT_IN_API,select
+opening_invoice_creation_tool,company,NOT_IN_API,link
+opening_invoice_creation_tool,cost_center,NOT_IN_API,link
+opening_invoice_creation_tool,status,NOT_IN_API,select
+party_link,status,NOT_IN_API,select
+payment_entry,company,NOT_IN_API,link
+payment_entry,cost_center,NOT_IN_API,link
+payment_entry,contact_person,NOT_IN_API,link
+payment_entry,contact_email,NOT_IN_API,text
+payment_entry,paid_from,NOT_IN_API,link
+payment_entry,status,NOT_IN_API,select
+payment_entry,is_opening,TYPE,meta=text api=bool
+payment_entry,unallocated_amount,NOT_IN_API,currency
+payment_entry,total_allocated_amount,NOT_IN_API,currency
+payment_entry,total_deduction_amount,NOT_IN_API,currency
+payment_entry,difference_amount,NOT_IN_API,currency
+payment_entry,amended_from_id,NOT_IN_API,link
+payment_gateway_account,payment_account,NOT_IN_API,link
+payment_gateway_account,company,NOT_IN_API,link
+payment_gateway_account,status,NOT_IN_API,select
+payment_ledger_entry,account,NOT_IN_API,link
+payment_ledger_entry,status,NOT_IN_API,select
+payment_ledger_entry,delinked,NOT_IN_API,check
+payment_order,company,NOT_IN_API,link
+payment_order,company_bank_account,NOT_IN_API,link
+payment_order,company_bank,NOT_IN_API,link
+payment_order,status,NOT_IN_API,select
+payment_order,naming_series,ENUM_MISSING_IN_META,['PMO-']
+payment_order,naming_series,ENUM_NOT_IN_API,['Pmo']
+payment_reconciliation,company,NOT_IN_API,link
+payment_reconciliation,party,META_REQUIRED_API_OPTIONAL,
+payment_reconciliation,receivable_payable_account,NOT_IN_API,link
+payment_reconciliation,currency,NOT_IN_API,link
+payment_reconciliation,bank_cash_account,NOT_IN_API,link
+payment_reconciliation,total_invoice_amount,NOT_IN_API,currency
+payment_reconciliation,total_payment_amount,NOT_IN_API,currency
+payment_reconciliation,difference_amount,NOT_IN_API,currency
+payment_reconciliation,status,NOT_IN_API,select
+payment_request,payment_request_type,META_REQUIRED_API_OPTIONAL,
+payment_request,mode_of_payment,NOT_IN_API,link
+payment_request,grand_total,META_REQUIRED_API_OPTIONAL,
+payment_request,bank_account,NOT_IN_API,link
+payment_request,status,ENUM_MISSING_IN_META,"['Failed', 'Initiated', 'Partially Paid', 'Payment Ordered', 'Requested']"
+payment_request,status,ENUM_NOT_IN_API,['Submitted']
+payment_request,status,META_REQUIRED_API_OPTIONAL,
+payment_request,naming_series,ENUM_MISSING_IN_META,['ACC-PRQ-.YYYY.-']
+payment_request,naming_series,ENUM_NOT_IN_API,['Acc Prq Yyyy']
+payment_request,naming_series,META_REQUIRED_API_OPTIONAL,
+payment_term,payment_term_name,API_REQUIRED_META_OPTIONAL,
+payment_term,status,NOT_IN_API,select
+payment_terms_template,template_name,API_REQUIRED_META_OPTIONAL,
+payment_terms_template,status,NOT_IN_API,select
+payment_terms_template,terms,API_REQUIRED_NOT_IN_META,
+pegged_currencies,status,NOT_IN_API,select
+period_closing_voucher,fiscal_year,NOT_IN_API,link
+period_closing_voucher,company,NOT_IN_API,link
+period_closing_voucher,closing_account_head,NOT_IN_API,link
+period_closing_voucher,status,NOT_IN_API,select
+pos_closing_entry,period_start_date,META_REQUIRED_API_OPTIONAL,
+pos_closing_entry,period_end_date,META_REQUIRED_API_OPTIONAL,
+pos_closing_entry,company,NOT_IN_API,link
+pos_invoice,tax_id,NOT_IN_API,text
+pos_invoice,is_pos,META_REQUIRED_API_OPTIONAL,
+pos_invoice,company,NOT_IN_API,link
+pos_invoice,posting_time,TYPE,meta=text api=date
+pos_invoice,status,ENUM_MISSING_IN_META,"['Consolidated', 'Credit Note Issued', 'Overdue', 'Overdue and Discounted', 'Partly Paid', 'Partly Paid and Discounted', 'Return', 'Unpaid', 'Unpaid and Discounted']"
+pos_invoice,status,META_REQUIRED_API_OPTIONAL,
+pos_invoice,naming_series,ENUM_MISSING_IN_META,['ACC-PSINV-.YYYY.-']
+pos_invoice,naming_series,ENUM_NOT_IN_API,['Acc Psinv Yyyy']
+pos_invoice,selling_price_list,TYPE,meta=currency api=str
+pos_invoice,price_list_currency,TYPE,meta=currency api=str
+pos_invoice,taxes_and_charges,TYPE,meta=currency api=str
+pos_invoice,tax_category_id,TYPE,meta=currency api=uuid
+pos_invoice,other_charges_calculation,TYPE,meta=currency api=str
+pos_invoice,account_for_change_amount_id,TYPE,meta=currency api=uuid
+pos_invoice,debit_to_id,TYPE,meta=currency api=uuid
+pos_invoice_merge_log,posting_time,TYPE,meta=text api=date
+pos_invoice_merge_log,posting_time,META_REQUIRED_API_OPTIONAL,
+pos_invoice_merge_log,company,NOT_IN_API,link
+pos_invoice_merge_log,status,NOT_IN_API,select
+pos_opening_entry,period_start_date,META_REQUIRED_API_OPTIONAL,
+pos_opening_entry,company,NOT_IN_API,link
+pos_profile,company,NOT_IN_API,link
+pos_profile,write_off_account,NOT_IN_API,link
+pos_profile,status,NOT_IN_API,select
+pos_profile,account_for_change_amount_id,TYPE,meta=currency api=uuid
+pos_profile,taxes_and_charges,TYPE,meta=currency api=str
+pos_profile,tax_category_id,TYPE,meta=currency api=uuid
+pos_profile,action_on_new_invoice,ENUM_MISSING_IN_META,"['Discard Changes and Load New Invoice', 'Save Changes and Load New Invoice']"
+pos_profile,action_on_new_invoice,ENUM_NOT_IN_API,"['Discard Changes And Load New Invoice', 'Save Changes And Load New Invoice']"
+pos_settings,status,NOT_IN_API,select
+pricing_rule,status,NOT_IN_API,select
+pricing_rule,for_price_list,TYPE,meta=currency api=str
+pricing_rule,promotional_scheme_id,NOT_IN_API,link
+pricing_rule,naming_series,ENUM_MISSING_IN_META,['PRLE-.####']
+pricing_rule,naming_series,ENUM_NOT_IN_API,['Prle']
+process_deferred_accounting,account,NOT_IN_API,link
+process_deferred_accounting,company,NOT_IN_API,link
+process_deferred_accounting,status,NOT_IN_API,select
+process_payment_reconciliation,company,NOT_IN_API,link
+process_payment_reconciliation,party,META_REQUIRED_API_OPTIONAL,
+process_payment_reconciliation,receivable_payable_account,NOT_IN_API,link
+process_payment_reconciliation,cost_center,NOT_IN_API,link
+process_payment_reconciliation,bank_cash_account,NOT_IN_API,link
+process_statement_of_accounts,company,NOT_IN_API,link
+process_statement_of_accounts,cost_center,TYPE,meta=text api=array
+process_statement_of_accounts,project,TYPE,meta=text api=array
+process_statement_of_accounts,account,NOT_IN_API,link
+process_statement_of_accounts,finance_book,NOT_IN_API,link
+process_statement_of_accounts,status,NOT_IN_API,select
+process_statement_of_accounts,categorize_by,ENUM_MISSING_IN_META,"['Categorize by Voucher', 'Categorize by Voucher (Consolidated)']"
+process_statement_of_accounts,categorize_by,ENUM_NOT_IN_API,"['Categorize By Voucher', 'Categorize By Voucher Consolidated']"
+process_subscription,status,NOT_IN_API,select
+promotional_scheme,status,NOT_IN_API,select
+purchase_invoice,tax_id,NOT_IN_API,text
+purchase_invoice,company,NOT_IN_API,link
+purchase_invoice,cost_center,NOT_IN_API,link
+purchase_invoice,status,ENUM_MISSING_IN_META,"['Debit Note Issued', 'Internal Transfer', 'Overdue', 'Partly Paid', 'Return', 'Unpaid']"
+purchase_invoice,status,META_REQUIRED_API_OPTIONAL,
+purchase_invoice,naming_series,ENUM_MISSING_IN_META,"['ACC-PINV-.YYYY.-', 'ACC-PINV-RET-.YYYY.-']"
+purchase_invoice,naming_series,ENUM_NOT_IN_API,"['Acc Pinv Ret Yyyy', 'Acc Pinv Yyyy']"
+purchase_invoice,set_posting_time,TYPE,meta=time api=bool
+purchase_invoice,buying_price_list,TYPE,meta=currency api=str
+purchase_invoice,price_list_currency,TYPE,meta=currency api=str
+purchase_invoice,tax_category_id,TYPE,meta=currency api=uuid
+purchase_invoice,taxes_and_charges,TYPE,meta=currency api=str
+purchase_invoice,other_charges_calculation,TYPE,meta=currency api=str
+purchase_invoice,credit_to_id,TYPE,meta=currency api=uuid
+purchase_invoice,credit_to_id,META_REQUIRED_API_OPTIONAL,
+purchase_invoice,tax_withholding_group_id,TYPE,meta=currency api=uuid
+purchase_taxes_and_charges_template,company,NOT_IN_API,link
+purchase_taxes_and_charges_template,tax_category,NOT_IN_API,link
+purchase_taxes_and_charges_template,status,NOT_IN_API,select
+purchase_taxes_and_charges_template,tax_category_id,TYPE,meta=currency api=uuid
+repost_accounting_ledger,company,NOT_IN_API,link
+repost_payment_ledger,company,NOT_IN_API,link
+repost_payment_ledger,status,NOT_IN_API,select
+sales_invoice,tax_id,NOT_IN_API,text
+sales_invoice,company,NOT_IN_API,link
+sales_invoice,cost_center,NOT_IN_API,link
+sales_invoice,posting_time,TYPE,meta=text api=date
+sales_invoice,status,ENUM_MISSING_IN_META,"['Credit Note Issued', 'Internal Transfer', 'Overdue', 'Overdue and Discounted', 'Partly Paid', 'Partly Paid and Discounted', 'Return', 'Unpaid', 'Unpaid and Discounted']"
+sales_invoice,status,META_REQUIRED_API_OPTIONAL,
+sales_invoice,naming_series,ENUM_MISSING_IN_META,"['ACC-SINV-.YYYY.-', 'ACC-SINV-RET-.YYYY.-']"
+sales_invoice,naming_series,ENUM_NOT_IN_API,"['Acc Sinv Ret Yyyy', 'Acc Sinv Yyyy']"
+sales_invoice,set_posting_time,TYPE,meta=time api=bool
+sales_invoice,selling_price_list,TYPE,meta=currency api=str
+sales_invoice,price_list_currency,TYPE,meta=currency api=str
+sales_invoice,taxes_and_charges,TYPE,meta=currency api=str
+sales_invoice,tax_category_id,TYPE,meta=currency api=uuid
+sales_invoice,other_charges_calculation,TYPE,meta=currency api=str
+sales_invoice,account_for_change_amount_id,TYPE,meta=currency api=uuid
+sales_invoice,debit_to_id,TYPE,meta=currency api=uuid
+sales_invoice,debit_to_id,META_REQUIRED_API_OPTIONAL,
+sales_invoice,company_tax_id,NOT_IN_API,currency
+sales_invoice,additional_discount_account_id,TYPE,meta=currency api=uuid
+sales_invoice,tax_withholding_group_id,TYPE,meta=currency api=uuid
+sales_taxes_and_charges_template,company,NOT_IN_API,link
+sales_taxes_and_charges_template,tax_category,NOT_IN_API,link
+sales_taxes_and_charges_template,status,NOT_IN_API,select
+sales_taxes_and_charges_template,tax_category_id,TYPE,meta=currency api=uuid
+share_transfer,from_shareholder,NOT_IN_API,link
+share_transfer,equity_or_liability_account,NOT_IN_API,link
+share_transfer,asset_account,NOT_IN_API,link
+share_transfer,to_shareholder,NOT_IN_API,link
+share_transfer,share_type,NOT_IN_API,link
+share_transfer,from_no,META_REQUIRED_API_OPTIONAL,
+share_transfer,rate,META_REQUIRED_API_OPTIONAL,
+share_transfer,status,NOT_IN_API,select
+share_type,status,NOT_IN_API,select
+shareholder,company,NOT_IN_API,link
+shareholder,status,NOT_IN_API,select
+shareholder,naming_series,NOT_IN_API,text
+shipping_rule,company,NOT_IN_API,link
+shipping_rule,account,NOT_IN_API,link
+shipping_rule,cost_center,NOT_IN_API,link
+shipping_rule,status,NOT_IN_API,select
+subscription,sales_tax_template,TYPE,meta=currency api=str
+subscription,purchase_tax_template,TYPE,meta=currency api=str
+subscription,generate_new_invoices_past_due_date,TYPE,meta=date api=bool
+subscription,generate_invoice_at,ENUM_MISSING_IN_META,"['Bill N days before period start', 'Postpaid (bill at period end)', 'Prepaid (bill at period start)']"
+subscription,generate_invoice_at,ENUM_NOT_IN_API,"['Bill N Days Before Period Start', 'Postpaid Bill At Period End', 'Prepaid Bill At Period Start']"
+subscription_plan,billing_interval_count,META_REQUIRED_API_OPTIONAL,
+subscription_plan,cost_center,NOT_IN_API,link
+subscription_plan,product_price_id,NOT_IN_API,text
+subscription_plan,status,NOT_IN_API,select
+subscription_settings,status,NOT_IN_API,select
+tax_category,status,NOT_IN_API,select
+tax_rule,sales_tax_template,NOT_IN_API,link
+tax_rule,purchase_tax_template,NOT_IN_API,link
+tax_rule,status,NOT_IN_API,select
+tax_rule,sales_tax_template_id,TYPE,meta=currency api=uuid
+tax_rule,purchase_tax_template_id,TYPE,meta=currency api=uuid
+tax_rule,tax_category_id,TYPE,meta=currency api=uuid
+tax_withholding_category,category_name,API_REQUIRED_META_OPTIONAL,
+tax_withholding_category,tax_deduction_basis,META_REQUIRED_API_OPTIONAL,
+tax_withholding_category,status,NOT_IN_API,select
+tax_withholding_category,rates,API_REQUIRED_NOT_IN_META,
+tax_withholding_category,accounts,API_REQUIRED_NOT_IN_META,
+tax_withholding_group,status,NOT_IN_API,select
+unreconcile_payment,company,NOT_IN_API,link
+unreconcile_payment,get_allocations,NOT_IN_API,text
+unreconcile_payment,status,NOT_IN_API,select
