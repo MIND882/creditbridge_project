@@ -1,0 +1,5381 @@
+[
+  {
+    "index": 1,
+    "name": "customer_credit_limit",
+    "label": "Customer Credit Limit",
+    "module": "Selling",
+    "type": "setup",
+    "category": "Customer & Partner Management",
+    "description": "Manage Customer Credit Limit per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "parent_id",
+        "label": "Parent",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "parent"
+      },
+      {
+        "name": "parenttype",
+        "label": "Parenttype",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "parentfield",
+        "label": "Parentfield",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "credit_limit",
+        "label": "Credit Limit",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "overdue_billing_threshold",
+        "label": "Overdue Billing Threshold",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "company",
+        "label": "Company",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "bypass_credit_limit_check",
+        "label": "Bypass Credit Limit Check",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name",
+          "company"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "parent_id",
+          "parenttype",
+          "parentfield",
+          "credit_limit",
+          "overdue_billing_threshold",
+          "bypass_credit_limit_check"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/customer-credit-limit",
+      "table": "customer_credit_limits",
+      "model_path": "backend/app/selling/customer_credit_limit_domain/models/customer_credit_limit.py"
+    }
+  },
+  {
+    "index": 2,
+    "name": "customer",
+    "label": "Customer",
+    "module": "Selling",
+    "type": "master",
+    "category": "Customer & Partner Management",
+    "description": "Manage Customer per ERPNext cloud sales standard.",
+    "count": 3,
+    "fields": [
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "naming_series",
+        "label": "Naming Series",
+        "type": "select",
+        "required": false,
+        "in_list_view": false,
+        "options": [
+          "Cust Yyyy"
+        ]
+      },
+      {
+        "name": "customer_name",
+        "label": "Customer Name",
+        "type": "text",
+        "required": true,
+        "in_list_view": true
+      },
+      {
+        "name": "alias",
+        "label": "Alias",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "customer_type",
+        "label": "Customer Type",
+        "type": "select",
+        "required": true,
+        "in_list_view": false,
+        "options": [
+          "Company",
+          "Individual",
+          "Partnership"
+        ]
+      },
+      {
+        "name": "gender",
+        "label": "Gender",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "customer_group",
+        "label": "Customer Group",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "territory",
+        "label": "Territory",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "image",
+        "label": "Image",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "default_currency",
+        "label": "Default Currency",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "default_bank_account_id",
+        "label": "Default Bank Account",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "default_bank_account"
+      },
+      {
+        "name": "default_price_list_id",
+        "label": "Default Price List",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "payment_terms_id",
+        "label": "Payment Terms",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "payment_terms"
+      },
+      {
+        "name": "loyalty_program_id",
+        "label": "Loyalty Program",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "loyalty_program"
+      },
+      {
+        "name": "loyalty_program_tier",
+        "label": "Loyalty Program Tier",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "customer_primary_address",
+        "label": "Customer Primary Address",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "primary_address",
+        "label": "Primary Address",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "customer_primary_contact",
+        "label": "Customer Primary Contact",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "mobile_no",
+        "label": "Mobile No",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "email_id",
+        "label": "Email",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "email"
+      },
+      {
+        "name": "first_name",
+        "label": "First Name",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "last_name",
+        "label": "Last Name",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "is_internal_customer",
+        "label": "Is Internal Customer",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "represents_company",
+        "label": "Represents Company",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "tax_id",
+        "label": "Tax",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "tax_category_id",
+        "label": "Tax Category",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "tax_withholding_group_id",
+        "label": "Tax Withholding Group",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "tax_withholding_category_id",
+        "label": "Tax Withholding Category",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "restrict_to_companies",
+        "label": "Restrict To Companies",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "so_required",
+        "label": "So Required",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "dn_required",
+        "label": "Dn Required",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "disabled",
+        "label": "Disabled",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "is_frozen",
+        "label": "Is Frozen",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "account_manager",
+        "label": "Account Manager",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "default_sales_partner",
+        "label": "Default Sales Partner",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "default_commission_rate",
+        "label": "Default Commission Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "lead_name",
+        "label": "Lead Name",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "opportunity_name",
+        "label": "Opportunity Name",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "prospect_name",
+        "label": "Prospect Name",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "market_segment",
+        "label": "Market Segment",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "industry_id",
+        "label": "Industry",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "industry"
+      },
+      {
+        "name": "website",
+        "label": "Website",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "language",
+        "label": "Language",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "customer_pos_id",
+        "label": "Customer Pos",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "customer_pos"
+      },
+      {
+        "name": "customer_details",
+        "label": "Customer Details",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name",
+          "naming_series"
+        ]
+      },
+      {
+        "label": "Customer, Contact & Address",
+        "fields": [
+          "customer_name",
+          "customer_type",
+          "customer_group",
+          "customer_primary_address",
+          "primary_address",
+          "customer_primary_contact",
+          "mobile_no",
+          "email_id",
+          "is_internal_customer",
+          "tax_id",
+          "customer_pos_id",
+          "customer_details"
+        ]
+      },
+      {
+        "label": "Pricing, Currency & Financial Values",
+        "fields": [
+          "default_currency",
+          "default_bank_account_id",
+          "default_price_list_id",
+          "tax_category_id",
+          "tax_withholding_group_id",
+          "tax_withholding_category_id",
+          "account_manager",
+          "default_commission_rate"
+        ]
+      },
+      {
+        "label": "Terms, Notes & PO References",
+        "fields": [
+          "payment_terms_id"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "alias",
+          "gender",
+          "territory",
+          "image",
+          "loyalty_program_id",
+          "loyalty_program_tier",
+          "first_name",
+          "last_name",
+          "represents_company",
+          "restrict_to_companies",
+          "so_required",
+          "dn_required",
+          "disabled",
+          "is_frozen",
+          "default_sales_partner",
+          "lead_name",
+          "opportunity_name",
+          "prospect_name",
+          "market_segment",
+          "industry_id",
+          "website",
+          "language"
+        ]
+      }
+    ],
+    "sampleRecords": [
+      {
+        "id": "CUST-2026-0001",
+        "name": "CUST-2026-0001",
+        "customer_name": "Acme Technologies Pvt Ltd",
+        "customer_type": "Company",
+        "customer_group": "Commercial",
+        "territory": "India West - Mumbai",
+        "tax_id": "27AABCA1234F1Z5",
+        "status": "Active"
+      },
+      {
+        "id": "CUST-2026-0002",
+        "name": "CUST-2026-0002",
+        "customer_name": "Bharat Retailers Ltd",
+        "customer_type": "Company",
+        "customer_group": "Retail Chains",
+        "territory": "India North - Delhi NCR",
+        "tax_id": "07AABCB5678G1Z2",
+        "status": "Active"
+      },
+      {
+        "id": "CUST-2026-0003",
+        "name": "CUST-2026-0003",
+        "customer_name": "Zenith Logistics Corp",
+        "customer_type": "Company",
+        "customer_group": "Commercial",
+        "territory": "India West - Pune",
+        "tax_id": "27AABCZ9988H1Z1",
+        "status": "Active"
+      }
+    ],
+    "backend": {
+      "api_prefix": "/api/selling/customer",
+      "table": "customers",
+      "model_path": "backend/app/selling/customer_domain/models/customer.py"
+    }
+  },
+  {
+    "index": 3,
+    "name": "delivery_schedule_item",
+    "label": "Delivery Schedule Item",
+    "module": "Selling",
+    "type": "child_table",
+    "category": "Delivery & Installation",
+    "description": "Manage Delivery Schedule Item per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "parent_id",
+        "label": "Parent",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "parent"
+      },
+      {
+        "name": "parenttype",
+        "label": "Parenttype",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "parentfield",
+        "label": "Parentfield",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "item_code_id",
+        "label": "Item Code",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "item_code"
+      },
+      {
+        "name": "qty",
+        "label": "Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "conversion_factor",
+        "label": "Conversion Factor",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "stock_qty",
+        "label": "Stock Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "delivery_date",
+        "label": "Delivery Date",
+        "type": "date",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "sales_order_id",
+        "label": "Sales Order",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "sales_order"
+      },
+      {
+        "name": "sales_order_item",
+        "label": "Sales Order Item",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "warehouse_id",
+        "label": "Warehouse",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "warehouse"
+      },
+      {
+        "name": "uom_id",
+        "label": "Uom",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "uom"
+      },
+      {
+        "name": "stock_uom_id",
+        "label": "Stock Uom",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "stock_uom"
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name",
+          "delivery_date"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "parent_id",
+          "parenttype",
+          "parentfield",
+          "item_code_id",
+          "qty",
+          "conversion_factor",
+          "stock_qty",
+          "sales_order_id",
+          "sales_order_item",
+          "warehouse_id",
+          "uom_id",
+          "stock_uom_id"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/delivery-schedule-item",
+      "table": "delivery_schedule_items",
+      "model_path": "backend/app/selling/delivery_schedule_item_domain/models/delivery_schedule_item.py"
+    }
+  },
+  {
+    "index": 4,
+    "name": "industry_type",
+    "label": "Industry Type",
+    "module": "Selling",
+    "type": "setup",
+    "category": "Customer & Partner Management",
+    "description": "Manage Industry Type per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "industry",
+        "label": "Industry",
+        "type": "text",
+        "required": true,
+        "in_list_view": false
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "industry"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/industry-type",
+      "table": "industry_types",
+      "model_path": "backend/app/selling/industry_type_domain/models/industry_type.py"
+    }
+  },
+  {
+    "index": 5,
+    "name": "installation_note",
+    "label": "Installation Note",
+    "module": "Selling",
+    "type": "transaction",
+    "category": "Delivery & Installation",
+    "description": "Manage Installation Note per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "naming_series",
+        "label": "Naming Series",
+        "type": "select",
+        "required": true,
+        "in_list_view": false,
+        "options": [
+          "Mat Ins Yyyy"
+        ]
+      },
+      {
+        "name": "customer_id",
+        "label": "Customer",
+        "type": "link",
+        "required": true,
+        "in_list_view": false,
+        "linkTo": "customer"
+      },
+      {
+        "name": "customer_address",
+        "label": "Customer Address",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "contact_person",
+        "label": "Contact Person",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "customer_name",
+        "label": "Customer Name",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "address_display",
+        "label": "Address Display",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "contact_display",
+        "label": "Contact Display",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "contact_mobile",
+        "label": "Contact Mobile",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "contact_email",
+        "label": "Contact Email",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "territory",
+        "label": "Territory",
+        "type": "text",
+        "required": true,
+        "in_list_view": false
+      },
+      {
+        "name": "customer_group",
+        "label": "Customer Group",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "inst_date",
+        "label": "Inst Date",
+        "type": "date",
+        "required": true,
+        "in_list_view": false
+      },
+      {
+        "name": "inst_time",
+        "label": "Inst Time",
+        "type": "time",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "status",
+        "label": "Status",
+        "type": "select",
+        "required": true,
+        "in_list_view": true,
+        "options": [
+          "Draft",
+          "Submitted",
+          "Cancelled"
+        ]
+      },
+      {
+        "name": "company",
+        "label": "Company",
+        "type": "text",
+        "required": true,
+        "in_list_view": false
+      },
+      {
+        "name": "amended_from_id",
+        "label": "Amended From",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "amended_from"
+      },
+      {
+        "name": "remarks",
+        "label": "Remarks",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "project",
+        "label": "Project",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name",
+          "naming_series",
+          "status",
+          "company"
+        ]
+      },
+      {
+        "label": "Customer, Contact & Address",
+        "fields": [
+          "customer_id",
+          "customer_address",
+          "contact_person",
+          "customer_name",
+          "address_display",
+          "contact_display",
+          "contact_mobile",
+          "contact_email",
+          "customer_group"
+        ]
+      },
+      {
+        "label": "Pricing, Currency & Financial Values",
+        "fields": [
+          "project"
+        ]
+      },
+      {
+        "label": "Terms, Notes & PO References",
+        "fields": [
+          "remarks"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "territory",
+          "inst_date",
+          "inst_time",
+          "amended_from_id"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/installation-note",
+      "table": "installation_notes",
+      "model_path": "backend/app/selling/installation_note_domain/models/installation_note.py"
+    }
+  },
+  {
+    "index": 6,
+    "name": "installation_note_item",
+    "label": "Installation Note Item",
+    "module": "Selling",
+    "type": "child_table",
+    "category": "Delivery & Installation",
+    "description": "Manage Installation Note Item per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "parent_id",
+        "label": "Parent",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "parent"
+      },
+      {
+        "name": "parenttype",
+        "label": "Parenttype",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "parentfield",
+        "label": "Parentfield",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "item_code_id",
+        "label": "Item Code",
+        "type": "link",
+        "required": true,
+        "in_list_view": false,
+        "linkTo": "item_code"
+      },
+      {
+        "name": "serial_no",
+        "label": "Serial No",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "qty",
+        "label": "Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "prevdoc_detail_docname",
+        "label": "Prevdoc Detail Docname",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "prevdoc_docname",
+        "label": "Prevdoc Docname",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "prevdoc_doctype",
+        "label": "Prevdoc Doctype",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "serial_and_batch_bundle_id",
+        "label": "Serial And Batch Bundle",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "serial_and_batch_bundle"
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "parent_id",
+          "parenttype",
+          "parentfield",
+          "item_code_id",
+          "serial_no",
+          "qty",
+          "description",
+          "prevdoc_detail_docname",
+          "prevdoc_docname",
+          "prevdoc_doctype",
+          "serial_and_batch_bundle_id"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/installation-note-item",
+      "table": "installation_note_items",
+      "model_path": "backend/app/selling/installation_note_item_domain/models/installation_note_item.py"
+    }
+  },
+  {
+    "index": 7,
+    "name": "party_specific_item",
+    "label": "Party Specific Item",
+    "module": "Selling",
+    "type": "master",
+    "category": "Products & Bundles",
+    "description": "Manage Party Specific Item per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "party_type",
+        "label": "Party Type",
+        "type": "select",
+        "required": true,
+        "in_list_view": false,
+        "options": [
+          "Customer",
+          "Customer Group",
+          "Supplier",
+          "Supplier Group"
+        ]
+      },
+      {
+        "name": "party",
+        "label": "Party",
+        "type": "text",
+        "required": true,
+        "in_list_view": false
+      },
+      {
+        "name": "restrict_based_on",
+        "label": "Restrict Based On",
+        "type": "select",
+        "required": true,
+        "in_list_view": false,
+        "options": [
+          "Item",
+          "Item Group",
+          "Brand"
+        ]
+      },
+      {
+        "name": "based_on_value",
+        "label": "Based On Value",
+        "type": "text",
+        "required": true,
+        "in_list_view": false
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name"
+        ]
+      },
+      {
+        "label": "Customer, Contact & Address",
+        "fields": [
+          "party_type",
+          "party"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "restrict_based_on",
+          "based_on_value"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/party-specific-item",
+      "table": "party_specific_items",
+      "model_path": "backend/app/selling/party_specific_item_domain/models/party_specific_item.py"
+    }
+  },
+  {
+    "index": 8,
+    "name": "product_bundle",
+    "label": "Product Bundle",
+    "module": "Selling",
+    "type": "master",
+    "category": "Products & Bundles",
+    "description": "Manage Product Bundle per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "new_item_code_id",
+        "label": "New Item Code",
+        "type": "link",
+        "required": true,
+        "in_list_view": false,
+        "linkTo": "new_item_code"
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "is_active",
+        "label": "Is Active",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "disabled",
+        "label": "Disabled",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "amended_from_id",
+        "label": "Amended From",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "amended_from"
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "new_item_code_id",
+          "description",
+          "is_active",
+          "disabled",
+          "amended_from_id"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/product-bundle",
+      "table": "product_bundles",
+      "model_path": "backend/app/selling/product_bundle_domain/models/product_bundle.py"
+    }
+  },
+  {
+    "index": 9,
+    "name": "product_bundle_item",
+    "label": "Product Bundle Item",
+    "module": "Selling",
+    "type": "child_table",
+    "category": "Products & Bundles",
+    "description": "Manage Product Bundle Item per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "parent_id",
+        "label": "Parent",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "parent"
+      },
+      {
+        "name": "parenttype",
+        "label": "Parenttype",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "parentfield",
+        "label": "Parentfield",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "item_code_id",
+        "label": "Item Code",
+        "type": "link",
+        "required": true,
+        "in_list_view": false,
+        "linkTo": "item_code"
+      },
+      {
+        "name": "qty",
+        "label": "Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "rate",
+        "label": "Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "uom_id",
+        "label": "Uom",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "uom"
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name"
+        ]
+      },
+      {
+        "label": "Pricing, Currency & Financial Values",
+        "fields": [
+          "rate"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "parent_id",
+          "parenttype",
+          "parentfield",
+          "item_code_id",
+          "qty",
+          "description",
+          "uom_id"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/product-bundle-item",
+      "table": "product_bundle_items",
+      "model_path": "backend/app/selling/product_bundle_item_domain/models/product_bundle_item.py"
+    }
+  },
+  {
+    "index": 10,
+    "name": "proforma_invoice",
+    "label": "Proforma Invoice",
+    "module": "Selling",
+    "type": "transaction",
+    "category": "Sales Orders & Quotations",
+    "description": "Manage Proforma Invoice per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "naming_series",
+        "label": "Naming Series",
+        "type": "select",
+        "required": true,
+        "in_list_view": false,
+        "options": [
+          "Pro Yyyy"
+        ]
+      },
+      {
+        "name": "sales_order_id",
+        "label": "Sales Order",
+        "type": "link",
+        "required": true,
+        "in_list_view": false,
+        "linkTo": "sales_order"
+      },
+      {
+        "name": "customer_id",
+        "label": "Customer",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "customer"
+      },
+      {
+        "name": "customer_name",
+        "label": "Customer Name",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "company",
+        "label": "Company",
+        "type": "text",
+        "required": true,
+        "in_list_view": false
+      },
+      {
+        "name": "proforma_date",
+        "label": "Proforma Date",
+        "type": "date",
+        "required": true,
+        "in_list_view": false
+      },
+      {
+        "name": "currency",
+        "label": "Currency",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "based_on",
+        "label": "Based On",
+        "type": "select",
+        "required": false,
+        "in_list_view": false,
+        "options": [
+          "Quantity",
+          "Amount"
+        ]
+      },
+      {
+        "name": "hide_item_qty",
+        "label": "Hide Item Qty",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "total_qty",
+        "label": "Total Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "grand_total",
+        "label": "Grand Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "print_format",
+        "label": "Print Format",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "letter_head",
+        "label": "Letter Head",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "proforma_pdf",
+        "label": "Proforma Pdf",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "status",
+        "label": "Status",
+        "type": "select",
+        "required": false,
+        "in_list_view": true,
+        "options": [
+          "Draft",
+          "Issued",
+          "Cancelled"
+        ]
+      },
+      {
+        "name": "sent_on",
+        "label": "Sent On",
+        "type": "datetime",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "emailed_to",
+        "label": "Emailed To",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "amended_from_id",
+        "label": "Amended From",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "amended_from"
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name",
+          "naming_series",
+          "company",
+          "status"
+        ]
+      },
+      {
+        "label": "Customer, Contact & Address",
+        "fields": [
+          "customer_id",
+          "customer_name",
+          "emailed_to"
+        ]
+      },
+      {
+        "label": "Pricing, Currency & Financial Values",
+        "fields": [
+          "currency",
+          "total_qty",
+          "grand_total"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "sales_order_id",
+          "proforma_date",
+          "based_on",
+          "hide_item_qty",
+          "print_format",
+          "letter_head",
+          "proforma_pdf",
+          "sent_on",
+          "amended_from_id"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/proforma-invoice",
+      "table": "proforma_invoices",
+      "model_path": "backend/app/selling/proforma_invoice_domain/models/proforma_invoice.py"
+    }
+  },
+  {
+    "index": 11,
+    "name": "proforma_invoice_item",
+    "label": "Proforma Invoice Item",
+    "module": "Selling",
+    "type": "child_table",
+    "category": "Sales Orders & Quotations",
+    "description": "Manage Proforma Invoice Item per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "parent_id",
+        "label": "Parent",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "parent"
+      },
+      {
+        "name": "parenttype",
+        "label": "Parenttype",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "parentfield",
+        "label": "Parentfield",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "item_code_id",
+        "label": "Item Code",
+        "type": "link",
+        "required": true,
+        "in_list_view": false,
+        "linkTo": "item_code"
+      },
+      {
+        "name": "item_name",
+        "label": "Item Name",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "qty",
+        "label": "Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "uom_id",
+        "label": "Uom",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "uom"
+      },
+      {
+        "name": "rate",
+        "label": "Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "amount",
+        "label": "Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "so_detail",
+        "label": "So Detail",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name"
+        ]
+      },
+      {
+        "label": "Pricing, Currency & Financial Values",
+        "fields": [
+          "rate",
+          "amount"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "parent_id",
+          "parenttype",
+          "parentfield",
+          "item_code_id",
+          "item_name",
+          "qty",
+          "uom_id",
+          "so_detail"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/proforma-invoice-item",
+      "table": "proforma_invoice_items",
+      "model_path": "backend/app/selling/proforma_invoice_item_domain/models/proforma_invoice_item.py"
+    }
+  },
+  {
+    "index": 12,
+    "name": "quotation",
+    "label": "Quotation",
+    "module": "Selling",
+    "type": "transaction",
+    "category": "Sales Orders & Quotations",
+    "description": "Manage Quotation per ERPNext cloud sales standard.",
+    "count": 2,
+    "fields": [
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "naming_series",
+        "label": "Naming Series",
+        "type": "select",
+        "required": true,
+        "in_list_view": false,
+        "options": [
+          "Sal Qtn Yyyy"
+        ]
+      },
+      {
+        "name": "quotation_to",
+        "label": "Quotation To",
+        "type": "text",
+        "required": true,
+        "in_list_view": false
+      },
+      {
+        "name": "party_name",
+        "label": "Party Name",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "customer_name",
+        "label": "Customer Name",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "transaction_date",
+        "label": "Transaction Date",
+        "type": "date",
+        "required": true,
+        "in_list_view": true
+      },
+      {
+        "name": "valid_till",
+        "label": "Valid Till",
+        "type": "date",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "order_type",
+        "label": "Order Type",
+        "type": "select",
+        "required": true,
+        "in_list_view": false,
+        "options": [
+          "Sales",
+          "Maintenance",
+          "Shopping Cart"
+        ]
+      },
+      {
+        "name": "company",
+        "label": "Company",
+        "type": "text",
+        "required": true,
+        "in_list_view": false
+      },
+      {
+        "name": "has_unit_price_items",
+        "label": "Has Unit Price Items",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "amended_from_id",
+        "label": "Amended From",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "amended_from"
+      },
+      {
+        "name": "currency",
+        "label": "Currency",
+        "type": "text",
+        "required": true,
+        "in_list_view": false
+      },
+      {
+        "name": "conversion_rate",
+        "label": "Conversion Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "selling_price_list_id",
+        "label": "Selling Price List",
+        "type": "currency",
+        "required": true,
+        "in_list_view": false
+      },
+      {
+        "name": "price_list_currency",
+        "label": "Price List Currency",
+        "type": "currency",
+        "required": true,
+        "in_list_view": false
+      },
+      {
+        "name": "plc_conversion_rate",
+        "label": "Plc Conversion Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "ignore_pricing_rule",
+        "label": "Ignore Pricing Rule",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "scan_barcode",
+        "label": "Scan Barcode",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "last_scanned_warehouse",
+        "label": "Last Scanned Warehouse",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "total_qty",
+        "label": "Total Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "total_net_weight",
+        "label": "Total Net Weight",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_total",
+        "label": "Base Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_net_total",
+        "label": "Base Net Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "total",
+        "label": "Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "net_total",
+        "label": "Net Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "tax_category_id",
+        "label": "Tax Category",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "taxes_and_charges_id",
+        "label": "Taxes And Charges",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "shipping_rule_id",
+        "label": "Shipping Rule",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "shipping_rule"
+      },
+      {
+        "name": "incoterm",
+        "label": "Incoterm",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "named_place",
+        "label": "Named Place",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_total_taxes_and_charges",
+        "label": "Base Total Taxes And Charges",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "total_taxes_and_charges",
+        "label": "Total Taxes And Charges",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "grand_total",
+        "label": "Grand Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "in_words",
+        "label": "In Words",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "rounded_total",
+        "label": "Rounded Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "rounding_adjustment",
+        "label": "Rounding Adjustment",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "disable_rounded_total",
+        "label": "Disable Rounded Total",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_grand_total",
+        "label": "Base Grand Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_in_words",
+        "label": "Base In Words",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_rounded_total",
+        "label": "Base Rounded Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_rounding_adjustment",
+        "label": "Base Rounding Adjustment",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "apply_discount_on",
+        "label": "Apply Discount On",
+        "type": "select",
+        "required": false,
+        "in_list_view": false,
+        "options": [
+          "Grand Total",
+          "Net Total"
+        ]
+      },
+      {
+        "name": "base_discount_amount",
+        "label": "Base Discount Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "coupon_code_id",
+        "label": "Coupon Code",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "coupon_code"
+      },
+      {
+        "name": "additional_discount_percentage",
+        "label": "Additional Discount Percentage",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "discount_amount",
+        "label": "Discount Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "referral_sales_partner",
+        "label": "Referral Sales Partner",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "other_charges_calculation",
+        "label": "Other Charges Calculation",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "customer_address",
+        "label": "Customer Address",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "address_display",
+        "label": "Address Display",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "contact_person",
+        "label": "Contact Person",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "contact_display",
+        "label": "Contact Display",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "contact_mobile",
+        "label": "Contact Mobile",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "contact_email",
+        "label": "Contact Email",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "shipping_address_name",
+        "label": "Shipping Address Name",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "shipping_address",
+        "label": "Shipping Address",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "company_address",
+        "label": "Company Address",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "company_address_display",
+        "label": "Company Address Display",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "company_contact_person",
+        "label": "Company Contact Person",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "payment_terms_template_id",
+        "label": "Payment Terms Template",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "payment_terms_template"
+      },
+      {
+        "name": "tc_name",
+        "label": "Tc Name",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "terms",
+        "label": "Terms",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "auto_repeat",
+        "label": "Auto Repeat",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "letter_head",
+        "label": "Letter Head",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "group_same_items",
+        "label": "Group Same Items",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "select_print_heading",
+        "label": "Select Print Heading",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "language",
+        "label": "Language",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "order_lost_reason",
+        "label": "Order Lost Reason",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "utm_source",
+        "label": "Utm Source",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "utm_medium",
+        "label": "Utm Medium",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "utm_campaign",
+        "label": "Utm Campaign",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "utm_content",
+        "label": "Utm Content",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "status",
+        "label": "Status",
+        "type": "select",
+        "required": true,
+        "in_list_view": true,
+        "options": [
+          "Draft",
+          "Open",
+          "Replied",
+          "Partially Ordered",
+          "Ordered",
+          "Lost",
+          "Cancelled",
+          "Expired"
+        ]
+      },
+      {
+        "name": "customer_group",
+        "label": "Customer Group",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "territory",
+        "label": "Territory",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "opportunity",
+        "label": "Opportunity",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "enq_det",
+        "label": "Enq Det",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "supplier_quotation_id",
+        "label": "Supplier Quotation",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "supplier_quotation"
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name",
+          "naming_series",
+          "transaction_date",
+          "valid_till",
+          "order_type",
+          "company",
+          "status",
+          "title"
+        ]
+      },
+      {
+        "label": "Customer, Contact & Address",
+        "fields": [
+          "party_name",
+          "customer_name",
+          "shipping_rule_id",
+          "customer_address",
+          "address_display",
+          "contact_person",
+          "contact_display",
+          "contact_mobile",
+          "contact_email",
+          "shipping_address_name",
+          "shipping_address",
+          "company_address",
+          "company_address_display",
+          "company_contact_person",
+          "customer_group"
+        ]
+      },
+      {
+        "label": "Pricing, Currency & Financial Values",
+        "fields": [
+          "currency",
+          "conversion_rate",
+          "selling_price_list_id",
+          "price_list_currency",
+          "plc_conversion_rate",
+          "total_qty",
+          "total_net_weight",
+          "base_total",
+          "base_net_total",
+          "total",
+          "net_total",
+          "tax_category_id",
+          "taxes_and_charges_id",
+          "base_total_taxes_and_charges",
+          "total_taxes_and_charges",
+          "grand_total",
+          "rounded_total",
+          "disable_rounded_total",
+          "base_grand_total",
+          "base_rounded_total",
+          "apply_discount_on",
+          "base_discount_amount",
+          "additional_discount_percentage",
+          "discount_amount",
+          "other_charges_calculation"
+        ]
+      },
+      {
+        "label": "Terms, Notes & PO References",
+        "fields": [
+          "payment_terms_template_id",
+          "tc_name",
+          "terms"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "quotation_to",
+          "has_unit_price_items",
+          "amended_from_id",
+          "ignore_pricing_rule",
+          "scan_barcode",
+          "last_scanned_warehouse",
+          "incoterm",
+          "named_place",
+          "in_words",
+          "rounding_adjustment",
+          "base_in_words",
+          "base_rounding_adjustment",
+          "coupon_code_id",
+          "referral_sales_partner",
+          "auto_repeat",
+          "letter_head",
+          "group_same_items",
+          "select_print_heading",
+          "language",
+          "order_lost_reason",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "territory",
+          "opportunity",
+          "enq_det",
+          "supplier_quotation_id"
+        ]
+      }
+    ],
+    "sampleRecords": [
+      {
+        "id": "QTN-2026-0001",
+        "name": "QTN-2026-0001",
+        "party_name": "Acme Technologies Pvt Ltd",
+        "customer_name": "Acme Technologies Pvt Ltd",
+        "transaction_date": "2026-10-01",
+        "valid_till": "2026-10-31",
+        "net_total": 350000.0,
+        "grand_total": 413000.0,
+        "status": "Open"
+      },
+      {
+        "id": "QTN-2026-0002",
+        "name": "QTN-2026-0002",
+        "party_name": "Reliance Infotech Solutions",
+        "customer_name": "Reliance Infotech Solutions",
+        "transaction_date": "2026-10-04",
+        "valid_till": "2026-11-15",
+        "net_total": 520000.0,
+        "grand_total": 613600.0,
+        "status": "Open"
+      }
+    ],
+    "backend": {
+      "api_prefix": "/api/selling/quotation",
+      "table": "quotations",
+      "model_path": "backend/app/selling/quotation_domain/models/quotation.py"
+    }
+  },
+  {
+    "index": 13,
+    "name": "quotation_item",
+    "label": "Quotation Item",
+    "module": "Selling",
+    "type": "child_table",
+    "category": "Sales Orders & Quotations",
+    "description": "Manage Quotation Item per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "parent_id",
+        "label": "Parent",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "parent"
+      },
+      {
+        "name": "parenttype",
+        "label": "Parenttype",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "parentfield",
+        "label": "Parentfield",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "item_code_id",
+        "label": "Item Code",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "item_code"
+      },
+      {
+        "name": "is_product_bundle",
+        "label": "Is Product Bundle",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "product_bundle_id",
+        "label": "Product Bundle",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "product_bundle"
+      },
+      {
+        "name": "item_name",
+        "label": "Item Name",
+        "type": "text",
+        "required": true,
+        "in_list_view": true
+      },
+      {
+        "name": "customer_item_code",
+        "label": "Customer Item Code",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "is_free_item",
+        "label": "Is Free Item",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "is_alternative",
+        "label": "Is Alternative",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "has_alternative_item",
+        "label": "Has Alternative Item",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "item_group_id",
+        "label": "Item Group",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "item_group"
+      },
+      {
+        "name": "brand_id",
+        "label": "Brand",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "brand"
+      },
+      {
+        "name": "image",
+        "label": "Image",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "image_view",
+        "label": "Image View",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "qty",
+        "label": "Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "stock_uom_id",
+        "label": "Stock Uom",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "stock_uom"
+      },
+      {
+        "name": "uom_id",
+        "label": "Uom",
+        "type": "link",
+        "required": true,
+        "in_list_view": false,
+        "linkTo": "uom"
+      },
+      {
+        "name": "conversion_factor",
+        "label": "Conversion Factor",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "stock_qty",
+        "label": "Stock Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "ordered_qty",
+        "label": "Ordered Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "actual_qty",
+        "label": "Actual Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "company_total_stock",
+        "label": "Company Total Stock",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "price_list_rate",
+        "label": "Price List Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_price_list_rate",
+        "label": "Base Price List Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "margin_type",
+        "label": "Margin Type",
+        "type": "select",
+        "required": false,
+        "in_list_view": false,
+        "options": [
+          "Percentage",
+          "Amount"
+        ]
+      },
+      {
+        "name": "margin_rate_or_amount",
+        "label": "Margin Rate Or Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "rate_with_margin",
+        "label": "Rate With Margin",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "discount_percentage",
+        "label": "Discount Percentage",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "discount_amount",
+        "label": "Discount Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "distributed_discount_amount",
+        "label": "Distributed Discount Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_rate_with_margin",
+        "label": "Base Rate With Margin",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "rate",
+        "label": "Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "net_rate",
+        "label": "Net Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "amount",
+        "label": "Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "net_amount",
+        "label": "Net Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "item_tax_template_id",
+        "label": "Item Tax Template",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_rate",
+        "label": "Base Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_net_rate",
+        "label": "Base Net Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_amount",
+        "label": "Base Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_net_amount",
+        "label": "Base Net Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "pricing_rules",
+        "label": "Pricing Rules",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "stock_uom_rate",
+        "label": "Stock Uom Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "valuation_rate",
+        "label": "Valuation Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "gross_profit",
+        "label": "Gross Profit",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "weight_per_unit",
+        "label": "Weight Per Unit",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "total_weight",
+        "label": "Total Weight",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "weight_uom_id",
+        "label": "Weight Uom",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "weight_uom"
+      },
+      {
+        "name": "warehouse_id",
+        "label": "Warehouse",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "warehouse"
+      },
+      {
+        "name": "against_blanket_order",
+        "label": "Against Blanket Order",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "blanket_order",
+        "label": "Blanket Order",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "blanket_order_rate",
+        "label": "Blanket Order Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "prevdoc_doctype",
+        "label": "Prevdoc Doctype",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "prevdoc_docname",
+        "label": "Prevdoc Docname",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "projected_qty",
+        "label": "Projected Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "item_tax_rate",
+        "label": "Item Tax Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "additional_notes",
+        "label": "Additional Notes",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "page_break",
+        "label": "Page Break",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name"
+        ]
+      },
+      {
+        "label": "Customer, Contact & Address",
+        "fields": [
+          "customer_item_code"
+        ]
+      },
+      {
+        "label": "Pricing, Currency & Financial Values",
+        "fields": [
+          "company_total_stock",
+          "price_list_rate",
+          "base_price_list_rate",
+          "margin_rate_or_amount",
+          "rate_with_margin",
+          "discount_percentage",
+          "discount_amount",
+          "distributed_discount_amount",
+          "base_rate_with_margin",
+          "rate",
+          "net_rate",
+          "amount",
+          "net_amount",
+          "item_tax_template_id",
+          "base_rate",
+          "base_net_rate",
+          "base_amount",
+          "base_net_amount",
+          "stock_uom_rate",
+          "valuation_rate",
+          "total_weight",
+          "blanket_order_rate",
+          "projected_qty",
+          "item_tax_rate"
+        ]
+      },
+      {
+        "label": "Terms, Notes & PO References",
+        "fields": [
+          "additional_notes"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "parent_id",
+          "parenttype",
+          "parentfield",
+          "item_code_id",
+          "is_product_bundle",
+          "product_bundle_id",
+          "item_name",
+          "is_free_item",
+          "is_alternative",
+          "has_alternative_item",
+          "description",
+          "item_group_id",
+          "brand_id",
+          "image",
+          "image_view",
+          "qty",
+          "stock_uom_id",
+          "uom_id",
+          "conversion_factor",
+          "stock_qty",
+          "ordered_qty",
+          "actual_qty",
+          "margin_type",
+          "pricing_rules",
+          "gross_profit",
+          "weight_per_unit",
+          "weight_uom_id",
+          "warehouse_id",
+          "against_blanket_order",
+          "blanket_order",
+          "prevdoc_doctype",
+          "prevdoc_docname",
+          "page_break"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/quotation-item",
+      "table": "quotation_items",
+      "model_path": "backend/app/selling/quotation_item_domain/models/quotation_item.py"
+    }
+  },
+  {
+    "index": 14,
+    "name": "sales_order",
+    "label": "Sales Order",
+    "module": "Selling",
+    "type": "transaction",
+    "category": "Sales Orders & Quotations",
+    "description": "Manage Sales Order per ERPNext cloud sales standard.",
+    "count": 2,
+    "fields": [
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "company",
+        "label": "Company",
+        "type": "text",
+        "required": true,
+        "in_list_view": false
+      },
+      {
+        "name": "naming_series",
+        "label": "Naming Series",
+        "type": "select",
+        "required": true,
+        "in_list_view": false,
+        "options": [
+          "Sal Ord Yyyy"
+        ]
+      },
+      {
+        "name": "customer_id",
+        "label": "Customer",
+        "type": "link",
+        "required": true,
+        "in_list_view": false,
+        "linkTo": "customer"
+      },
+      {
+        "name": "customer_name",
+        "label": "Customer Name",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "order_type",
+        "label": "Order Type",
+        "type": "select",
+        "required": true,
+        "in_list_view": false,
+        "options": [
+          "Sales",
+          "Maintenance",
+          "Shopping Cart"
+        ]
+      },
+      {
+        "name": "transaction_date",
+        "label": "Transaction Date",
+        "type": "date",
+        "required": true,
+        "in_list_view": true
+      },
+      {
+        "name": "transaction_time",
+        "label": "Transaction Time",
+        "type": "time",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "delivery_date",
+        "label": "Delivery Date",
+        "type": "date",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "tax_id",
+        "label": "Tax",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "skip_delivery_note",
+        "label": "Skip Delivery Note",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "has_unit_price_items",
+        "label": "Has Unit Price Items",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "is_subcontracted",
+        "label": "Is Subcontracted",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "amended_from_id",
+        "label": "Amended From",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "amended_from"
+      },
+      {
+        "name": "cost_center_id",
+        "label": "Cost Center",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "cost_center"
+      },
+      {
+        "name": "project",
+        "label": "Project",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "currency",
+        "label": "Currency",
+        "type": "text",
+        "required": true,
+        "in_list_view": false
+      },
+      {
+        "name": "conversion_rate",
+        "label": "Conversion Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "selling_price_list_id",
+        "label": "Selling Price List",
+        "type": "currency",
+        "required": true,
+        "in_list_view": false
+      },
+      {
+        "name": "price_list_currency",
+        "label": "Price List Currency",
+        "type": "currency",
+        "required": true,
+        "in_list_view": false
+      },
+      {
+        "name": "plc_conversion_rate",
+        "label": "Plc Conversion Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "ignore_pricing_rule",
+        "label": "Ignore Pricing Rule",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "scan_barcode",
+        "label": "Scan Barcode",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "last_scanned_warehouse",
+        "label": "Last Scanned Warehouse",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "set_warehouse_id",
+        "label": "Set Warehouse",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "set_warehouse"
+      },
+      {
+        "name": "reserve_stock",
+        "label": "Reserve Stock",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "total_qty",
+        "label": "Total Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "total_net_weight",
+        "label": "Total Net Weight",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_total",
+        "label": "Base Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_net_total",
+        "label": "Base Net Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "total",
+        "label": "Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "net_total",
+        "label": "Net Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "tax_category_id",
+        "label": "Tax Category",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "taxes_and_charges_id",
+        "label": "Taxes And Charges",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "shipping_rule_id",
+        "label": "Shipping Rule",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "shipping_rule"
+      },
+      {
+        "name": "incoterm",
+        "label": "Incoterm",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "named_place",
+        "label": "Named Place",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_total_taxes_and_charges",
+        "label": "Base Total Taxes And Charges",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "total_taxes_and_charges",
+        "label": "Total Taxes And Charges",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "grand_total",
+        "label": "Grand Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "in_words",
+        "label": "In Words",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "disable_rounded_total",
+        "label": "Disable Rounded Total",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "rounding_adjustment",
+        "label": "Rounding Adjustment",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "rounded_total",
+        "label": "Rounded Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_grand_total",
+        "label": "Base Grand Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_in_words",
+        "label": "Base In Words",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_rounding_adjustment",
+        "label": "Base Rounding Adjustment",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_rounded_total",
+        "label": "Base Rounded Total",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "advance_paid",
+        "label": "Advance Paid",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "apply_discount_on",
+        "label": "Apply Discount On",
+        "type": "select",
+        "required": false,
+        "in_list_view": false,
+        "options": [
+          "Grand Total",
+          "Net Total"
+        ]
+      },
+      {
+        "name": "base_discount_amount",
+        "label": "Base Discount Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "coupon_code_id",
+        "label": "Coupon Code",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "coupon_code"
+      },
+      {
+        "name": "additional_discount_percentage",
+        "label": "Additional Discount Percentage",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "discount_amount",
+        "label": "Discount Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "other_charges_calculation",
+        "label": "Other Charges Calculation",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "customer_address",
+        "label": "Customer Address",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "address_display",
+        "label": "Address Display",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "customer_group",
+        "label": "Customer Group",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "territory",
+        "label": "Territory",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "contact_person",
+        "label": "Contact Person",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "contact_display",
+        "label": "Contact Display",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "contact_phone",
+        "label": "Contact Phone",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "contact_mobile",
+        "label": "Contact Mobile",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "contact_email",
+        "label": "Contact Email",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "shipping_address_name",
+        "label": "Shipping Address Name",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "shipping_address",
+        "label": "Shipping Address",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "dispatch_address_name",
+        "label": "Dispatch Address Name",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "dispatch_address",
+        "label": "Dispatch Address",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "company_address",
+        "label": "Company Address",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "company_address_display",
+        "label": "Company Address Display",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "company_contact_person",
+        "label": "Company Contact Person",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "ignore_default_payment_terms_template",
+        "label": "Ignore Default Payment Terms Template",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "payment_terms_template_id",
+        "label": "Payment Terms Template",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "payment_terms_template"
+      },
+      {
+        "name": "tc_name",
+        "label": "Tc Name",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "terms",
+        "label": "Terms",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "status",
+        "label": "Status",
+        "type": "select",
+        "required": true,
+        "in_list_view": true,
+        "options": [
+          "Draft",
+          "On Hold",
+          "To Pay",
+          "To Deliver And Bill",
+          "To Bill",
+          "To Deliver",
+          "Completed",
+          "Cancelled",
+          "Closed"
+        ]
+      },
+      {
+        "name": "delivery_status",
+        "label": "Delivery Status",
+        "type": "select",
+        "required": false,
+        "in_list_view": false,
+        "options": [
+          "Not Delivered",
+          "Fully Delivered",
+          "Partly Delivered",
+          "Closed",
+          "Not Applicable"
+        ]
+      },
+      {
+        "name": "per_delivered",
+        "label": "Per Delivered",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "per_billed",
+        "label": "Per Billed",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "per_picked",
+        "label": "Per Picked",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "billing_status",
+        "label": "Billing Status",
+        "type": "select",
+        "required": false,
+        "in_list_view": false,
+        "options": [
+          "Not Billed",
+          "Fully Billed",
+          "Partly Billed",
+          "Closed"
+        ]
+      },
+      {
+        "name": "advance_payment_status",
+        "label": "Advance Payment Status",
+        "type": "select",
+        "required": false,
+        "in_list_view": false,
+        "options": [
+          "Not Requested",
+          "Requested",
+          "Partially Paid",
+          "Fully Paid"
+        ]
+      },
+      {
+        "name": "sales_partner",
+        "label": "Sales Partner",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "amount_eligible_for_commission",
+        "label": "Amount Eligible For Commission",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "commission_rate",
+        "label": "Commission Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "total_commission",
+        "label": "Total Commission",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "loyalty_points",
+        "label": "Loyalty Points",
+        "type": "number",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "loyalty_amount",
+        "label": "Loyalty Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "from_date",
+        "label": "From Date",
+        "type": "date",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "to_date",
+        "label": "To Date",
+        "type": "date",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "auto_repeat",
+        "label": "Auto Repeat",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "letter_head",
+        "label": "Letter Head",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "group_same_items",
+        "label": "Group Same Items",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "select_print_heading",
+        "label": "Select Print Heading",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "language",
+        "label": "Language",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "utm_source",
+        "label": "Utm Source",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "utm_medium",
+        "label": "Utm Medium",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "utm_campaign",
+        "label": "Utm Campaign",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "utm_content",
+        "label": "Utm Content",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "is_internal_customer",
+        "label": "Is Internal Customer",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "po_no",
+        "label": "Po No",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "po_date",
+        "label": "Po Date",
+        "type": "date",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "represents_company",
+        "label": "Represents Company",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "inter_company_order_reference_id",
+        "label": "Inter Company Order Reference",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "inter_company_order_reference"
+      },
+      {
+        "name": "party_account_currency",
+        "label": "Party Account Currency",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name",
+          "company",
+          "naming_series",
+          "order_type",
+          "transaction_date",
+          "delivery_date",
+          "status",
+          "title"
+        ]
+      },
+      {
+        "label": "Customer, Contact & Address",
+        "fields": [
+          "customer_id",
+          "customer_name",
+          "tax_id",
+          "shipping_rule_id",
+          "customer_address",
+          "address_display",
+          "customer_group",
+          "contact_person",
+          "contact_display",
+          "contact_phone",
+          "contact_mobile",
+          "contact_email",
+          "shipping_address_name",
+          "shipping_address",
+          "dispatch_address_name",
+          "dispatch_address",
+          "company_address",
+          "company_address_display",
+          "company_contact_person",
+          "is_internal_customer",
+          "party_account_currency"
+        ]
+      },
+      {
+        "label": "Pricing, Currency & Financial Values",
+        "fields": [
+          "cost_center_id",
+          "project",
+          "currency",
+          "conversion_rate",
+          "selling_price_list_id",
+          "price_list_currency",
+          "plc_conversion_rate",
+          "total_qty",
+          "total_net_weight",
+          "base_total",
+          "base_net_total",
+          "total",
+          "net_total",
+          "tax_category_id",
+          "taxes_and_charges_id",
+          "base_total_taxes_and_charges",
+          "total_taxes_and_charges",
+          "grand_total",
+          "disable_rounded_total",
+          "rounded_total",
+          "base_grand_total",
+          "base_rounded_total",
+          "apply_discount_on",
+          "base_discount_amount",
+          "additional_discount_percentage",
+          "discount_amount",
+          "other_charges_calculation",
+          "amount_eligible_for_commission",
+          "commission_rate",
+          "total_commission",
+          "loyalty_amount"
+        ]
+      },
+      {
+        "label": "Terms, Notes & PO References",
+        "fields": [
+          "ignore_default_payment_terms_template",
+          "payment_terms_template_id",
+          "tc_name",
+          "terms",
+          "po_no",
+          "po_date",
+          "inter_company_order_reference_id"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "transaction_time",
+          "skip_delivery_note",
+          "has_unit_price_items",
+          "is_subcontracted",
+          "amended_from_id",
+          "ignore_pricing_rule",
+          "scan_barcode",
+          "last_scanned_warehouse",
+          "set_warehouse_id",
+          "reserve_stock",
+          "incoterm",
+          "named_place",
+          "in_words",
+          "rounding_adjustment",
+          "base_in_words",
+          "base_rounding_adjustment",
+          "advance_paid",
+          "coupon_code_id",
+          "territory",
+          "delivery_status",
+          "per_delivered",
+          "per_billed",
+          "per_picked",
+          "billing_status",
+          "advance_payment_status",
+          "sales_partner",
+          "loyalty_points",
+          "from_date",
+          "to_date",
+          "auto_repeat",
+          "letter_head",
+          "group_same_items",
+          "select_print_heading",
+          "language",
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+          "represents_company"
+        ]
+      }
+    ],
+    "sampleRecords": [
+      {
+        "id": "SO-2026-0001",
+        "name": "SO-2026-0001",
+        "customer": "Acme Technologies Pvt Ltd",
+        "customer_name": "Acme Technologies Pvt Ltd",
+        "transaction_date": "2026-10-05",
+        "delivery_date": "2026-10-25",
+        "net_total": 275000.0,
+        "total_taxes_and_charges": 49500.0,
+        "grand_total": 324500.0,
+        "status": "To Deliver and Bill"
+      },
+      {
+        "id": "SO-2026-0002",
+        "name": "SO-2026-0002",
+        "customer": "Bharat Retailers Ltd",
+        "customer_name": "Bharat Retailers Ltd",
+        "transaction_date": "2026-10-06",
+        "delivery_date": "2026-11-01",
+        "net_total": 180000.0,
+        "total_taxes_and_charges": 32400.0,
+        "grand_total": 212400.0,
+        "status": "To Deliver and Bill"
+      }
+    ],
+    "backend": {
+      "api_prefix": "/api/selling/sales-order",
+      "table": "sales_orders",
+      "model_path": "backend/app/selling/sales_order_domain/models/sales_order.py"
+    }
+  },
+  {
+    "index": 15,
+    "name": "sales_order_item",
+    "label": "Sales Order Item",
+    "module": "Selling",
+    "type": "child_table",
+    "category": "Sales Orders & Quotations",
+    "description": "Manage Sales Order Item per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "parent_id",
+        "label": "Parent",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "parent"
+      },
+      {
+        "name": "parenttype",
+        "label": "Parenttype",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "parentfield",
+        "label": "Parentfield",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "fg_item_id",
+        "label": "Fg Item",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "fg_item"
+      },
+      {
+        "name": "fg_item_qty",
+        "label": "Fg Item Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "item_code_id",
+        "label": "Item Code",
+        "type": "link",
+        "required": true,
+        "in_list_view": false,
+        "linkTo": "item_code"
+      },
+      {
+        "name": "is_product_bundle",
+        "label": "Is Product Bundle",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "product_bundle_id",
+        "label": "Product Bundle",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "product_bundle"
+      },
+      {
+        "name": "customer_item_code",
+        "label": "Customer Item Code",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "ensure_delivery_based_on_produced_serial_no",
+        "label": "Ensure Delivery Based On Produced Serial No",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "is_stock_item",
+        "label": "Is Stock Item",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "reserve_stock",
+        "label": "Reserve Stock",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "delivery_date",
+        "label": "Delivery Date",
+        "type": "date",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "item_name",
+        "label": "Item Name",
+        "type": "text",
+        "required": true,
+        "in_list_view": true
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "item_group_id",
+        "label": "Item Group",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "item_group"
+      },
+      {
+        "name": "brand_id",
+        "label": "Brand",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "brand"
+      },
+      {
+        "name": "image",
+        "label": "Image",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "image_view",
+        "label": "Image View",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "qty",
+        "label": "Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "stock_uom_id",
+        "label": "Stock Uom",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "stock_uom"
+      },
+      {
+        "name": "subcontracted_qty",
+        "label": "Subcontracted Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "uom_id",
+        "label": "Uom",
+        "type": "link",
+        "required": true,
+        "in_list_view": false,
+        "linkTo": "uom"
+      },
+      {
+        "name": "conversion_factor",
+        "label": "Conversion Factor",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "stock_qty",
+        "label": "Stock Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "stock_reserved_qty",
+        "label": "Stock Reserved Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "price_list_rate",
+        "label": "Price List Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_price_list_rate",
+        "label": "Base Price List Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "margin_type",
+        "label": "Margin Type",
+        "type": "select",
+        "required": false,
+        "in_list_view": false,
+        "options": [
+          "Percentage",
+          "Amount"
+        ]
+      },
+      {
+        "name": "margin_rate_or_amount",
+        "label": "Margin Rate Or Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "rate_with_margin",
+        "label": "Rate With Margin",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "discount_percentage",
+        "label": "Discount Percentage",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "discount_amount",
+        "label": "Discount Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "distributed_discount_amount",
+        "label": "Distributed Discount Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_rate_with_margin",
+        "label": "Base Rate With Margin",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "rate",
+        "label": "Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "amount",
+        "label": "Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "item_tax_template_id",
+        "label": "Item Tax Template",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_rate",
+        "label": "Base Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_amount",
+        "label": "Base Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "pricing_rules",
+        "label": "Pricing Rules",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "stock_uom_rate",
+        "label": "Stock Uom Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "is_free_item",
+        "label": "Is Free Item",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "grant_commission",
+        "label": "Grant Commission",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "net_rate",
+        "label": "Net Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "net_amount",
+        "label": "Net Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_net_rate",
+        "label": "Base Net Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "base_net_amount",
+        "label": "Base Net Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "billed_amt",
+        "label": "Billed Amt",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "valuation_rate",
+        "label": "Valuation Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "gross_profit",
+        "label": "Gross Profit",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "delivered_by_supplier",
+        "label": "Delivered By Supplier",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "supplier_id",
+        "label": "Supplier",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "supplier"
+      },
+      {
+        "name": "weight_per_unit",
+        "label": "Weight Per Unit",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "total_weight",
+        "label": "Total Weight",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "weight_uom_id",
+        "label": "Weight Uom",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "weight_uom"
+      },
+      {
+        "name": "warehouse_id",
+        "label": "Warehouse",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "warehouse"
+      },
+      {
+        "name": "target_warehouse_id",
+        "label": "Target Warehouse",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "target_warehouse"
+      },
+      {
+        "name": "prevdoc_docname_id",
+        "label": "Prevdoc Docname",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "prevdoc_docname"
+      },
+      {
+        "name": "quotation_item",
+        "label": "Quotation Item",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "against_blanket_order",
+        "label": "Against Blanket Order",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "blanket_order",
+        "label": "Blanket Order",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "blanket_order_rate",
+        "label": "Blanket Order Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "actual_qty",
+        "label": "Actual Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "company_total_stock",
+        "label": "Company Total Stock",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "bom_no",
+        "label": "Bom No",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "projected_qty",
+        "label": "Projected Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "ordered_qty",
+        "label": "Ordered Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "planned_qty",
+        "label": "Planned Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "production_plan_qty",
+        "label": "Production Plan Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "requested_qty",
+        "label": "Requested Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "work_order_qty",
+        "label": "Work Order Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "delivered_qty",
+        "label": "Delivered Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "produced_qty",
+        "label": "Produced Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "returned_qty",
+        "label": "Returned Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "picked_qty",
+        "label": "Picked Qty",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "additional_notes",
+        "label": "Additional Notes",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "page_break",
+        "label": "Page Break",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "item_tax_rate",
+        "label": "Item Tax Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "transaction_date",
+        "label": "Transaction Date",
+        "type": "date",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "material_request_id",
+        "label": "Material Request",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "material_request"
+      },
+      {
+        "name": "purchase_order_id",
+        "label": "Purchase Order",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "purchase_order"
+      },
+      {
+        "name": "material_request_item",
+        "label": "Material Request Item",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "purchase_order_item",
+        "label": "Purchase Order Item",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "cost_center_id",
+        "label": "Cost Center",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "cost_center"
+      },
+      {
+        "name": "project",
+        "label": "Project",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name",
+          "delivery_date",
+          "transaction_date"
+        ]
+      },
+      {
+        "label": "Customer, Contact & Address",
+        "fields": [
+          "customer_item_code"
+        ]
+      },
+      {
+        "label": "Pricing, Currency & Financial Values",
+        "fields": [
+          "price_list_rate",
+          "base_price_list_rate",
+          "margin_rate_or_amount",
+          "rate_with_margin",
+          "discount_percentage",
+          "discount_amount",
+          "distributed_discount_amount",
+          "base_rate_with_margin",
+          "rate",
+          "amount",
+          "item_tax_template_id",
+          "base_rate",
+          "base_amount",
+          "stock_uom_rate",
+          "net_rate",
+          "net_amount",
+          "base_net_rate",
+          "base_net_amount",
+          "valuation_rate",
+          "total_weight",
+          "blanket_order_rate",
+          "company_total_stock",
+          "projected_qty",
+          "item_tax_rate",
+          "cost_center_id",
+          "project"
+        ]
+      },
+      {
+        "label": "Terms, Notes & PO References",
+        "fields": [
+          "additional_notes"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "parent_id",
+          "parenttype",
+          "parentfield",
+          "fg_item_id",
+          "fg_item_qty",
+          "item_code_id",
+          "is_product_bundle",
+          "product_bundle_id",
+          "ensure_delivery_based_on_produced_serial_no",
+          "is_stock_item",
+          "reserve_stock",
+          "item_name",
+          "description",
+          "item_group_id",
+          "brand_id",
+          "image",
+          "image_view",
+          "qty",
+          "stock_uom_id",
+          "subcontracted_qty",
+          "uom_id",
+          "conversion_factor",
+          "stock_qty",
+          "stock_reserved_qty",
+          "margin_type",
+          "pricing_rules",
+          "is_free_item",
+          "grant_commission",
+          "billed_amt",
+          "gross_profit",
+          "delivered_by_supplier",
+          "supplier_id",
+          "weight_per_unit",
+          "weight_uom_id",
+          "warehouse_id",
+          "target_warehouse_id",
+          "prevdoc_docname_id",
+          "quotation_item",
+          "against_blanket_order",
+          "blanket_order",
+          "actual_qty",
+          "bom_no",
+          "ordered_qty",
+          "planned_qty",
+          "production_plan_qty",
+          "requested_qty",
+          "work_order_qty",
+          "delivered_qty",
+          "produced_qty",
+          "returned_qty",
+          "picked_qty",
+          "page_break",
+          "material_request_id",
+          "purchase_order_id",
+          "material_request_item",
+          "purchase_order_item"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/sales-order-item",
+      "table": "sales_order_items",
+      "model_path": "backend/app/selling/sales_order_item_domain/models/sales_order_item.py"
+    }
+  },
+  {
+    "index": 16,
+    "name": "sales_partner_type",
+    "label": "Sales Partner Type",
+    "module": "Selling",
+    "type": "setup",
+    "category": "Customer & Partner Management",
+    "description": "Manage Sales Partner Type per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "sales_partner_type",
+        "label": "Sales Partner Type",
+        "type": "text",
+        "required": true,
+        "in_list_view": false
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "sales_partner_type"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/sales-partner-type",
+      "table": "sales_partner_types",
+      "model_path": "backend/app/selling/sales_partner_type_domain/models/sales_partner_type.py"
+    }
+  },
+  {
+    "index": 17,
+    "name": "sales_team",
+    "label": "Sales Team",
+    "module": "Selling",
+    "type": "master",
+    "category": "Customer & Partner Management",
+    "description": "Manage Sales Team per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "parent_id",
+        "label": "Parent",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "parent"
+      },
+      {
+        "name": "parenttype",
+        "label": "Parenttype",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "parentfield",
+        "label": "Parentfield",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "sales_person",
+        "label": "Sales Person",
+        "type": "text",
+        "required": true,
+        "in_list_view": false
+      },
+      {
+        "name": "contact_no",
+        "label": "Contact No",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "allocated_percentage",
+        "label": "Allocated Percentage",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "allocated_amount",
+        "label": "Allocated Amount",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "commission_rate",
+        "label": "Commission Rate",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "incentives",
+        "label": "Incentives",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name"
+        ]
+      },
+      {
+        "label": "Customer, Contact & Address",
+        "fields": [
+          "contact_no"
+        ]
+      },
+      {
+        "label": "Pricing, Currency & Financial Values",
+        "fields": [
+          "allocated_amount",
+          "commission_rate"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "parent_id",
+          "parenttype",
+          "parentfield",
+          "sales_person",
+          "allocated_percentage",
+          "incentives"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/sales-team",
+      "table": "sales_teams",
+      "model_path": "backend/app/selling/sales_team_domain/models/sales_team.py"
+    }
+  },
+  {
+    "index": 18,
+    "name": "selling_settings",
+    "label": "Selling Settings",
+    "module": "Selling",
+    "type": "setup",
+    "category": "Settings & Communication",
+    "description": "Manage Selling Settings per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "cust_master_name",
+        "label": "Cust Master Name",
+        "type": "select",
+        "required": false,
+        "in_list_view": true,
+        "options": [
+          "Customer Name",
+          "Naming Series",
+          "Auto Name"
+        ]
+      },
+      {
+        "name": "naming_series_details",
+        "label": "Naming Series Details",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "customer_group",
+        "label": "Customer Group",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "territory",
+        "label": "Territory",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "selling_price_list_id",
+        "label": "Selling Price List",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "fallback_to_default_price_list",
+        "label": "Fallback To Default Price List",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "editable_price_list_rate",
+        "label": "Editable Price List Rate",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "maintain_same_sales_rate",
+        "label": "Maintain Same Sales Rate",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "maintain_same_rate_action",
+        "label": "Maintain Same Rate Action",
+        "type": "select",
+        "required": false,
+        "in_list_view": false,
+        "options": [
+          "Stop",
+          "Warn"
+        ]
+      },
+      {
+        "name": "role_to_override_stop_action",
+        "label": "Role To Override Stop Action",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "validate_selling_price",
+        "label": "Validate Selling Price",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "editable_bundle_item_rates",
+        "label": "Editable Bundle Item Rates",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "allow_negative_rates_for_items",
+        "label": "Allow Negative Rates For Items",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "so_required",
+        "label": "So Required",
+        "type": "select",
+        "required": false,
+        "in_list_view": false,
+        "options": [
+          "No",
+          "Yes"
+        ]
+      },
+      {
+        "name": "dn_required",
+        "label": "Dn Required",
+        "type": "select",
+        "required": false,
+        "in_list_view": false,
+        "options": [
+          "No",
+          "Yes"
+        ]
+      },
+      {
+        "name": "sales_update_frequency",
+        "label": "Sales Update Frequency",
+        "type": "select",
+        "required": false,
+        "in_list_view": false,
+        "options": [
+          "Monthly",
+          "Each Transaction",
+          "Daily"
+        ]
+      },
+      {
+        "name": "allow_multiple_items",
+        "label": "Allow Multiple Items",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "allow_against_multiple_purchase_orders",
+        "label": "Allow Against Multiple Purchase Orders",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "hide_tax_id",
+        "label": "Hide Tax",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "allow_sales_order_creation_for_expired_quotation",
+        "label": "Allow Sales Order Creation For Expired Quotation",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "dont_reserve_sales_order_qty_on_sales_return",
+        "label": "Dont Reserve Sales Order Qty On Sales Return",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "enable_cutoff_date_on_bulk_delivery_note_creation",
+        "label": "Enable Cutoff Date On Bulk Delivery Note Creation",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "set_zero_rate_for_expired_batch",
+        "label": "Set Zero Rate For Expired Batch",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "allow_zero_qty_in_quotation",
+        "label": "Allow Zero Qty In Quotation",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "allow_zero_qty_in_sales_order",
+        "label": "Allow Zero Qty In Sales Order",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "blanket_order_allowance",
+        "label": "Blanket Order Allowance",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "enable_proforma_invoice",
+        "label": "Enable Proforma Invoice",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "default_proforma_print_format",
+        "label": "Default Proforma Print Format",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "enable_tracking_sales_commissions",
+        "label": "Enable Tracking Sales Commissions",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "enable_discount_accounting",
+        "label": "Enable Discount Accounting",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "enable_utm",
+        "label": "Enable Utm",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "use_legacy_js_reactivity",
+        "label": "Use Legacy Js Reactivity",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "allow_delivery_of_overproduced_qty",
+        "label": "Allow Delivery Of Overproduced Qty",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "deliver_secondary_items",
+        "label": "Deliver Secondary Items",
+        "type": "check",
+        "required": false,
+        "in_list_view": false
+      }
+    ],
+    "sections": [
+      {
+        "label": "Customer, Contact & Address",
+        "fields": [
+          "customer_group",
+          "hide_tax_id"
+        ]
+      },
+      {
+        "label": "Pricing, Currency & Financial Values",
+        "fields": [
+          "selling_price_list_id",
+          "fallback_to_default_price_list",
+          "editable_price_list_rate",
+          "maintain_same_sales_rate",
+          "maintain_same_rate_action",
+          "editable_bundle_item_rates",
+          "allow_negative_rates_for_items",
+          "set_zero_rate_for_expired_batch",
+          "enable_discount_accounting"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "cust_master_name",
+          "naming_series_details",
+          "territory",
+          "role_to_override_stop_action",
+          "validate_selling_price",
+          "so_required",
+          "dn_required",
+          "sales_update_frequency",
+          "allow_multiple_items",
+          "allow_against_multiple_purchase_orders",
+          "allow_sales_order_creation_for_expired_quotation",
+          "dont_reserve_sales_order_qty_on_sales_return",
+          "enable_cutoff_date_on_bulk_delivery_note_creation",
+          "allow_zero_qty_in_quotation",
+          "allow_zero_qty_in_sales_order",
+          "blanket_order_allowance",
+          "enable_proforma_invoice",
+          "default_proforma_print_format",
+          "enable_tracking_sales_commissions",
+          "enable_utm",
+          "use_legacy_js_reactivity",
+          "allow_delivery_of_overproduced_qty",
+          "deliver_secondary_items"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/selling-settings",
+      "table": "selling_settingss",
+      "model_path": "backend/app/selling/selling_settings_domain/models/selling_settings.py"
+    }
+  },
+  {
+    "index": 19,
+    "name": "sms_center",
+    "label": "Sms Center",
+    "module": "Selling",
+    "type": "setup",
+    "category": "Settings & Communication",
+    "description": "Manage Sms Center per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "send_to",
+        "label": "Send To",
+        "type": "select",
+        "required": false,
+        "in_list_view": true,
+        "options": [
+          "All Contact",
+          "All Customer Contact",
+          "All Supplier Contact",
+          "All Sales Partner Contact",
+          "All Lead Open",
+          "All Employee Active",
+          "All Sales Person"
+        ]
+      },
+      {
+        "name": "customer_id",
+        "label": "Customer",
+        "type": "link",
+        "required": false,
+        "in_list_view": true,
+        "linkTo": "customer"
+      },
+      {
+        "name": "supplier_id",
+        "label": "Supplier",
+        "type": "link",
+        "required": false,
+        "in_list_view": true,
+        "linkTo": "supplier"
+      },
+      {
+        "name": "sales_partner",
+        "label": "Sales Partner",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "department",
+        "label": "Department",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "branch",
+        "label": "Branch",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "receiver_list",
+        "label": "Receiver List",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "message",
+        "label": "Message",
+        "type": "textarea",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "total_characters",
+        "label": "Total Characters",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "total_messages",
+        "label": "Total Messages",
+        "type": "currency",
+        "required": false,
+        "in_list_view": false
+      }
+    ],
+    "sections": [
+      {
+        "label": "Customer, Contact & Address",
+        "fields": [
+          "customer_id"
+        ]
+      },
+      {
+        "label": "Pricing, Currency & Financial Values",
+        "fields": [
+          "total_characters",
+          "total_messages"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "send_to",
+          "supplier_id",
+          "sales_partner",
+          "department",
+          "branch",
+          "receiver_list",
+          "message"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/sms-center",
+      "table": "sms_centers",
+      "model_path": "backend/app/selling/sms_center_domain/models/sms_center.py"
+    }
+  },
+  {
+    "index": 20,
+    "name": "supplier_number_at_customer",
+    "label": "Supplier Number At Customer",
+    "module": "Selling",
+    "type": "setup",
+    "category": "Customer & Partner Management",
+    "description": "Manage Supplier Number At Customer per ERPNext cloud sales standard.",
+    "count": 0,
+    "fields": [
+      {
+        "name": "parent_id",
+        "label": "Parent",
+        "type": "link",
+        "required": false,
+        "in_list_view": false,
+        "linkTo": "parent"
+      },
+      {
+        "name": "parenttype",
+        "label": "Parenttype",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "parentfield",
+        "label": "Parentfield",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "name",
+        "label": "Record ID",
+        "type": "text",
+        "required": false,
+        "in_list_view": true
+      },
+      {
+        "name": "company",
+        "label": "Company",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      },
+      {
+        "name": "supplier_number",
+        "label": "Supplier Number",
+        "type": "text",
+        "required": false,
+        "in_list_view": false
+      }
+    ],
+    "sections": [
+      {
+        "label": "Primary & Identification",
+        "fields": [
+          "name",
+          "company"
+        ]
+      },
+      {
+        "label": "Operational & Configuration Flags",
+        "fields": [
+          "parent_id",
+          "parenttype",
+          "parentfield",
+          "supplier_number"
+        ]
+      }
+    ],
+    "sampleRecords": [],
+    "backend": {
+      "api_prefix": "/api/selling/supplier-number-at-customer",
+      "table": "supplier_number_at_customers",
+      "model_path": "backend/app/selling/supplier_number_at_customer_domain/models/supplier_number_at_customer.py"
+    }
+  }
+]
