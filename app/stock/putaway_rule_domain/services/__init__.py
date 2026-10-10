@@ -1,1 +1,0 @@
-"""Service for Putaway Rule."""

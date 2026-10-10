@@ -1,1 +1,0 @@
-"""Model for Workstation Type."""

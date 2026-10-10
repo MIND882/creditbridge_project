@@ -1,3 +1,0 @@
-"""Service for Party Link.
-
-"""

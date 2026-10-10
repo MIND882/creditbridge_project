@@ -1,1 +1,0 @@
-"""Repository for Party Account."""

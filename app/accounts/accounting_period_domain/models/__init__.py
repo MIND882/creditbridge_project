@@ -1,1 +1,0 @@
-"""Model for Accounting Period."""

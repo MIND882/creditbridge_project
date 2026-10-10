@@ -1,1 +1,0 @@
-"""Service for Industry Type."""

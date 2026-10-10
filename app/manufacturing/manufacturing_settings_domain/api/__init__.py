@@ -1,1 +1,0 @@
-"""Api for Manufacturing Settings."""

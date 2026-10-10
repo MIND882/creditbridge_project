@@ -1,1 +1,0 @@
-"""Schema for Manufacturing Settings."""

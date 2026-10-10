@@ -1,3 +1,0 @@
-"""Schema for Payment Schedule.
-
-"""

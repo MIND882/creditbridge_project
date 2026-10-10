@@ -1,1 +1,0 @@
-"""Service for Packed Item."""

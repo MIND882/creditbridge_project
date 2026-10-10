@@ -1,3 +1,0 @@
-"""Schema for Ledger Health.
-
-"""

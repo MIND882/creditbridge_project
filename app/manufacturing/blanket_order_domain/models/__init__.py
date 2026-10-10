@@ -1,1 +1,0 @@
-"""Model for Blanket Order."""

@@ -1,3 +1,0 @@
-"""Service for Share Type.
-
-"""

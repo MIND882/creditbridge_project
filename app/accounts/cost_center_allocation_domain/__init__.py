@@ -1,1 +1,0 @@
-"""Cost center allocation domain."""

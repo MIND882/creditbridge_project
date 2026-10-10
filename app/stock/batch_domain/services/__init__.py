@@ -1,1 +1,0 @@
-"""Service for Batch."""

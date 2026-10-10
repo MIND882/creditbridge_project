@@ -1,1 +1,0 @@
-"""Schema for Proforma Invoice."""

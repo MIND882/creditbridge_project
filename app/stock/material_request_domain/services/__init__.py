@@ -1,1 +1,0 @@
-"""Service for Material Request."""

@@ -1,3 +1,0 @@
-"""Model for Invoice Discounting.
-
-"""

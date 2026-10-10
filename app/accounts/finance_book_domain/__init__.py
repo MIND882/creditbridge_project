@@ -1,1 +1,0 @@
-"""Finance Book domain."""

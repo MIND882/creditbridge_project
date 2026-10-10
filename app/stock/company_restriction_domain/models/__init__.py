@@ -1,1 +1,0 @@
-"""Model for Company Restriction."""

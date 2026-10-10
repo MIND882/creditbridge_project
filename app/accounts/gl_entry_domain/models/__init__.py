@@ -1,1 +1,0 @@
-"""Model for Gl Entry."""

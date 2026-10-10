@@ -1,3 +1,0 @@
-"""Service for Process Subscription.
-
-"""

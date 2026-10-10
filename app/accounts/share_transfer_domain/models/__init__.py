@@ -1,3 +1,0 @@
-"""Model for Share Transfer.
-
-"""
