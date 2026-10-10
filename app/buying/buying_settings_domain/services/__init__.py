@@ -1,0 +1,1 @@
+"""Service for Buying Settings."""

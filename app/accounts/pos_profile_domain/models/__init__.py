@@ -1,0 +1,3 @@
+"""Model for POS Profile.
+
+"""

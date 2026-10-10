@@ -1,0 +1,3 @@
+"""Schema for Dunning Type.
+
+"""

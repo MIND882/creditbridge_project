@@ -1,0 +1,1 @@
+"""Repository for Buying Settings."""

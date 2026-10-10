@@ -1,0 +1,3 @@
+"""Schema for Fiscal Year.
+
+"""

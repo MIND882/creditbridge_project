@@ -1,0 +1,3 @@
+"""Api for Discounted Invoice.
+
+"""

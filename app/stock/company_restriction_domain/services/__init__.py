@@ -1,0 +1,1 @@
+"""Service for Company Restriction."""
